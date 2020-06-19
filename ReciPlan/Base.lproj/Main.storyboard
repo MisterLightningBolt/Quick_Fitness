@@ -103,6 +103,26 @@
                                     <segue destination="mKF-fu-VXL" kind="show" id="zQr-KS-yOe"/>
                                 </connections>
                             </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="fie-wA-ILb" style="IBUITableViewCellStyleDefault" id="Txt-XO-Pve">
+                                <rect key="frame" x="0.0" y="71.666667938232422" width="414" height="43.666667938232422"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Txt-XO-Pve" id="OvP-0U-GTg">
+                                    <rect key="frame" x="0.0" y="0.0" width="383" height="43.666667938232422"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="New Recipe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fie-wA-ILb">
+                                            <rect key="frame" x="20" y="0.0" width="355" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="mKF-fu-VXL" kind="show" id="TFW-fW-38X"/>
+                                </connections>
+                            </tableViewCell>
                         </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="4LE-GK-MCu" id="jTS-Ef-J7H"/>
@@ -113,7 +133,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1gu-0f-Vhw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1803" y="804"/>
+            <point key="canvasLocation" x="1762" y="804"/>
         </scene>
         <!--Planner-->
         <scene sceneID="wJx-hg-ciz">
@@ -136,7 +156,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QiX-FE-9In" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1048" y="-632"/>
+            <point key="canvasLocation" x="1761" y="-632"/>
         </scene>
         <!--Settings-->
         <scene sceneID="tEE-hw-1Ne">
@@ -195,7 +215,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2O1-Yt-Phd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1048" y="804"/>
+            <point key="canvasLocation" x="651" y="804"/>
         </scene>
         <!--Recipe Maker-->
         <scene sceneID="7n5-Wh-UXG">
@@ -403,7 +423,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1rY-Ce-3TG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2686.9565217391305" y="-632.14285714285711"/>
+            <point key="canvasLocation" x="2942" y="-601"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="T7B-RX-DUw">
@@ -425,7 +445,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="yQW-nb-EE6"/>
+        <segue reference="8Zl-gA-eq6"/>
         <segue reference="zQr-KS-yOe"/>
     </inferredMetricsTieBreakers>
 </document>
