@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "90CC7BAE3CC4CE0A54B3A827EE976C3E"
-               BuildableName = "Pods_ReciPlan.framework"
-               BlueprintName = "Pods-ReciPlan"
+               BlueprintIdentifier = "56E67ABF4E365F2DEC8D8F9251A905B8"
+               BuildableName = "Pods_Quick_Fitness.framework"
+               BlueprintName = "Pods-Quick Fitness"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

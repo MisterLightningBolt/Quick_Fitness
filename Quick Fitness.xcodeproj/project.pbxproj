@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6250A8668E4D0318D2028045 /* Pods_ReciPlan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F12DAA19197065E1F3D9FB6F /* Pods_ReciPlan.framework */; };
+		53AB3E4A9DE71EE42C194D55 /* Pods_Quick_Fitness.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD5E8BA004CA3D793790DFD4 /* Pods_Quick_Fitness.framework */; };
 		A527EC66249C1BE300C360FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A527EC65249C1BE300C360FE /* AppDelegate.swift */; };
 		A527EC68249C1BE300C360FE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A527EC67249C1BE300C360FE /* SceneDelegate.swift */; };
 		A527EC6A249C1BE300C360FE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A527EC69249C1BE300C360FE /* ViewController.swift */; };
 		A527EC6D249C1BE300C360FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A527EC6B249C1BE300C360FE /* Main.storyboard */; };
-		A527EC70249C1BE300C360FE /* ReciPlan.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A527EC6E249C1BE300C360FE /* ReciPlan.xcdatamodeld */; };
+		A527EC70249C1BE300C360FE /* Quick_Fitness.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A527EC6E249C1BE300C360FE /* Quick_Fitness.xcdatamodeld */; };
 		A527EC72249C1BE500C360FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A527EC71249C1BE500C360FE /* Assets.xcassets */; };
 		A527EC75249C1BE500C360FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A527EC73249C1BE500C360FE /* LaunchScreen.storyboard */; };
 		A527EC7D249C1CA000C360FE /* RecipeMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A527EC7C249C1CA000C360FE /* RecipeMaker.swift */; };
@@ -24,8 +24,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		41F13AFE183C73E46F69A8B0 /* Pods-Quick Fitness.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Quick Fitness.release.xcconfig"; path = "Target Support Files/Pods-Quick Fitness/Pods-Quick Fitness.release.xcconfig"; sourceTree = "<group>"; };
+		5B709DB07325F9975368ADD9 /* Pods-Quick Fitness.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Quick Fitness.debug.xcconfig"; path = "Target Support Files/Pods-Quick Fitness/Pods-Quick Fitness.debug.xcconfig"; sourceTree = "<group>"; };
 		5E6D2AAB08C8570C07322A08 /* Pods-ReciPlan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReciPlan.release.xcconfig"; path = "Target Support Files/Pods-ReciPlan/Pods-ReciPlan.release.xcconfig"; sourceTree = "<group>"; };
-		A527EC62249C1BE300C360FE /* ReciPlan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReciPlan.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A527EC62249C1BE300C360FE /* Quick Fitness.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Quick Fitness.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A527EC65249C1BE300C360FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A527EC67249C1BE300C360FE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		A527EC69249C1BE300C360FE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -40,8 +42,8 @@
 		A527EC84249C24B800C360FE /* IngredientSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientSelector.swift; sourceTree = "<group>"; };
 		A527EC86249C293E00C360FE /* Planner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Planner.swift; sourceTree = "<group>"; };
 		A531B324249D610B00937344 /* MyRecipes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRecipes.swift; sourceTree = "<group>"; };
+		AD5E8BA004CA3D793790DFD4 /* Pods_Quick_Fitness.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Quick_Fitness.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B47FFAA80F82B18E67604002 /* Pods-ReciPlan.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReciPlan.debug.xcconfig"; path = "Target Support Files/Pods-ReciPlan/Pods-ReciPlan.debug.xcconfig"; sourceTree = "<group>"; };
-		F12DAA19197065E1F3D9FB6F /* Pods_ReciPlan.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ReciPlan.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,7 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6250A8668E4D0318D2028045 /* Pods_ReciPlan.framework in Frameworks */,
+				53AB3E4A9DE71EE42C194D55 /* Pods_Quick_Fitness.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,7 +61,7 @@
 		4D2EF964164AED2D39AC8A69 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				F12DAA19197065E1F3D9FB6F /* Pods_ReciPlan.framework */,
+				AD5E8BA004CA3D793790DFD4 /* Pods_Quick_Fitness.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -69,6 +71,8 @@
 			children = (
 				B47FFAA80F82B18E67604002 /* Pods-ReciPlan.debug.xcconfig */,
 				5E6D2AAB08C8570C07322A08 /* Pods-ReciPlan.release.xcconfig */,
+				5B709DB07325F9975368ADD9 /* Pods-Quick Fitness.debug.xcconfig */,
+				41F13AFE183C73E46F69A8B0 /* Pods-Quick Fitness.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -76,7 +80,7 @@
 		A527EC59249C1BE300C360FE = {
 			isa = PBXGroup;
 			children = (
-				A527EC64249C1BE300C360FE /* ReciPlan */,
+				A527EC64249C1BE300C360FE /* Quick Fitness */,
 				A527EC63249C1BE300C360FE /* Products */,
 				4F5214B51784640F063A6402 /* Pods */,
 				4D2EF964164AED2D39AC8A69 /* Frameworks */,
@@ -86,12 +90,12 @@
 		A527EC63249C1BE300C360FE /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A527EC62249C1BE300C360FE /* ReciPlan.app */,
+				A527EC62249C1BE300C360FE /* Quick Fitness.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		A527EC64249C1BE300C360FE /* ReciPlan */ = {
+		A527EC64249C1BE300C360FE /* Quick Fitness */ = {
 			isa = PBXGroup;
 			children = (
 				A527EC65249C1BE300C360FE /* AppDelegate.swift */,
@@ -107,17 +111,17 @@
 				A527EC71249C1BE500C360FE /* Assets.xcassets */,
 				A527EC73249C1BE500C360FE /* LaunchScreen.storyboard */,
 				A527EC76249C1BE500C360FE /* Info.plist */,
-				A527EC6E249C1BE300C360FE /* ReciPlan.xcdatamodeld */,
+				A527EC6E249C1BE300C360FE /* Quick_Fitness.xcdatamodeld */,
 			);
-			path = ReciPlan;
+			path = "Quick Fitness";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A527EC61249C1BE300C360FE /* ReciPlan */ = {
+		A527EC61249C1BE300C360FE /* Quick Fitness */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A527EC79249C1BE500C360FE /* Build configuration list for PBXNativeTarget "ReciPlan" */;
+			buildConfigurationList = A527EC79249C1BE500C360FE /* Build configuration list for PBXNativeTarget "Quick Fitness" */;
 			buildPhases = (
 				C0989D9B5BABC50EF7A51AD8 /* [CP] Check Pods Manifest.lock */,
 				A527EC5E249C1BE300C360FE /* Sources */,
@@ -129,9 +133,9 @@
 			);
 			dependencies = (
 			);
-			name = ReciPlan;
+			name = "Quick Fitness";
 			productName = ReciPlan;
-			productReference = A527EC62249C1BE300C360FE /* ReciPlan.app */;
+			productReference = A527EC62249C1BE300C360FE /* Quick Fitness.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -149,7 +153,7 @@
 					};
 				};
 			};
-			buildConfigurationList = A527EC5D249C1BE300C360FE /* Build configuration list for PBXProject "ReciPlan" */;
+			buildConfigurationList = A527EC5D249C1BE300C360FE /* Build configuration list for PBXProject "Quick Fitness" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -162,7 +166,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A527EC61249C1BE300C360FE /* ReciPlan */,
+				A527EC61249C1BE300C360FE /* Quick Fitness */,
 			);
 		};
 /* End PBXProject section */
@@ -187,15 +191,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ReciPlan/Pods-ReciPlan-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Quick Fitness/Pods-Quick Fitness-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ReciPlan/Pods-ReciPlan-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Quick Fitness/Pods-Quick Fitness-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ReciPlan/Pods-ReciPlan-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Quick Fitness/Pods-Quick Fitness-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C0989D9B5BABC50EF7A51AD8 /* [CP] Check Pods Manifest.lock */ = {
@@ -213,7 +217,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-ReciPlan-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Quick Fitness-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -233,7 +237,7 @@
 				A527EC66249C1BE300C360FE /* AppDelegate.swift in Sources */,
 				A527EC68249C1BE300C360FE /* SceneDelegate.swift in Sources */,
 				A527EC83249C222100C360FE /* IngredientMaker.swift in Sources */,
-				A527EC70249C1BE300C360FE /* ReciPlan.xcdatamodeld in Sources */,
+				A527EC70249C1BE300C360FE /* Quick_Fitness.xcdatamodeld in Sources */,
 				A527EC7D249C1CA000C360FE /* RecipeMaker.swift in Sources */,
 				A527EC87249C293E00C360FE /* Planner.swift in Sources */,
 				A531B325249D610B00937344 /* MyRecipes.swift in Sources */,
@@ -378,20 +382,20 @@
 		};
 		A527EC7A249C1BE500C360FE /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B47FFAA80F82B18E67604002 /* Pods-ReciPlan.debug.xcconfig */;
+			baseConfigurationReference = 5B709DB07325F9975368ADD9 /* Pods-Quick Fitness.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = RY43KC8894;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = ReciPlan/Info.plist;
+				INFOPLIST_FILE = "Quick Fitness/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "Andrew-Hill.ReciPlan";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "Andrew-Hill.Quick-Fitness";
+				PRODUCT_NAME = "Quick Fitness";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -399,20 +403,20 @@
 		};
 		A527EC7B249C1BE500C360FE /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5E6D2AAB08C8570C07322A08 /* Pods-ReciPlan.release.xcconfig */;
+			baseConfigurationReference = 41F13AFE183C73E46F69A8B0 /* Pods-Quick Fitness.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = RY43KC8894;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = ReciPlan/Info.plist;
+				INFOPLIST_FILE = "Quick Fitness/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "Andrew-Hill.ReciPlan";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "Andrew-Hill.Quick-Fitness";
+				PRODUCT_NAME = "Quick Fitness";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -421,7 +425,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A527EC5D249C1BE300C360FE /* Build configuration list for PBXProject "ReciPlan" */ = {
+		A527EC5D249C1BE300C360FE /* Build configuration list for PBXProject "Quick Fitness" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A527EC77249C1BE500C360FE /* Debug */,
@@ -430,7 +434,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A527EC79249C1BE500C360FE /* Build configuration list for PBXNativeTarget "ReciPlan" */ = {
+		A527EC79249C1BE500C360FE /* Build configuration list for PBXNativeTarget "Quick Fitness" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A527EC7A249C1BE500C360FE /* Debug */,
@@ -442,13 +446,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		A527EC6E249C1BE300C360FE /* ReciPlan.xcdatamodeld */ = {
+		A527EC6E249C1BE300C360FE /* Quick_Fitness.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
 				A527EC6F249C1BE300C360FE /* ReciPlan.xcdatamodel */,
 			);
 			currentVersion = A527EC6F249C1BE300C360FE /* ReciPlan.xcdatamodel */;
-			path = ReciPlan.xcdatamodeld;
+			path = Quick_Fitness.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

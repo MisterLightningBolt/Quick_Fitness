@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double Pods_ReciPlanVersionNumber;
-FOUNDATION_EXPORT const unsigned char Pods_ReciPlanVersionString[];
+FOUNDATION_EXPORT double Pods_Quick_FitnessVersionNumber;
+FOUNDATION_EXPORT const unsigned char Pods_Quick_FitnessVersionString[];
 

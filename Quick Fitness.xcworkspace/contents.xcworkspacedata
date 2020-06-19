@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:/Users/michelleguyton/Desktop/Andrew School/Andrew C S 371L/Quick_Fitness/Quick Fitness.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Pods/Pods.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Quick Fitness.xcodeproj">
+   </FileRef>
+</Workspace>
