@@ -1,5 +1,5 @@
 //
-// MyRecipes.swift: HillAndrew-HW1
+// MyRoutines.swift: HillAndrew-HW1
 // EID: awh772
 // Course: CS371L
 //
@@ -9,7 +9,7 @@
 
 import UIKit
 
-class MyRecipes: UITableViewController {
+class MyRoutines: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

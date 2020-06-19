@@ -1,5 +1,5 @@
 //
-// MyIngredients.swift: HillAndrew-HW1
+// MyExercises.swift: HillAndrew-HW1
 // EID: awh772
 // Course: CS371L
 //
@@ -9,7 +9,7 @@
 
 import UIKit
 
-class IngredientSelector: UIViewController {
+class ExerciseSelector: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

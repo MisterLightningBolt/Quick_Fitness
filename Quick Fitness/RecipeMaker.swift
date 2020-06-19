@@ -1,5 +1,5 @@
 //
-// RecipeMaker.swift: HillAndrew-HW1
+// RoutineMaker.swift: HillAndrew-HW1
 // EID: awh772
 // Course: CS371L
 //
@@ -9,7 +9,7 @@
 
 import UIKit
 
-class RecipeMaker: UIViewController {
+class RoutineMaker: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
