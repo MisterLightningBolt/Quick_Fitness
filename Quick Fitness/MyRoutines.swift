@@ -1,5 +1,5 @@
 //
-// MyRoutines.swift: HillAndrew-HW1
+// MyRoutines.swift: HillAndrew-Project
 // EID: awh772
 // Course: CS371L
 //

@@ -1,5 +1,5 @@
 //
-// SceneDelegate.swift: HillAndrew-HW1
+// SceneDelegate.swift: HillAndrew-Project
 // EID: awh772
 // Course: CS371L
 //

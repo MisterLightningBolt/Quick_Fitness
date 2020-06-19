@@ -1,5 +1,5 @@
 //
-// ViewController.swift: HillAndrew-HW1
+// ViewController.swift: HillAndrew-Project
 // EID: awh772
 // Course: CS371L
 //
