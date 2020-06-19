@@ -20,6 +20,7 @@
 		A527EC83249C222100C360FE /* IngredientMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A527EC82249C222100C360FE /* IngredientMaker.swift */; };
 		A527EC85249C24B800C360FE /* IngredientSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = A527EC84249C24B800C360FE /* IngredientSelector.swift */; };
 		A527EC87249C293E00C360FE /* Planner.swift in Sources */ = {isa = PBXBuildFile; fileRef = A527EC86249C293E00C360FE /* Planner.swift */; };
+		A531B325249D610B00937344 /* MyRecipes.swift in Sources */ = {isa = PBXBuildFile; fileRef = A531B324249D610B00937344 /* MyRecipes.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		A527EC82249C222100C360FE /* IngredientMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientMaker.swift; sourceTree = "<group>"; };
 		A527EC84249C24B800C360FE /* IngredientSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientSelector.swift; sourceTree = "<group>"; };
 		A527EC86249C293E00C360FE /* Planner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Planner.swift; sourceTree = "<group>"; };
+		A531B324249D610B00937344 /* MyRecipes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRecipes.swift; sourceTree = "<group>"; };
 		B47FFAA80F82B18E67604002 /* Pods-ReciPlan.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReciPlan.debug.xcconfig"; path = "Target Support Files/Pods-ReciPlan/Pods-ReciPlan.debug.xcconfig"; sourceTree = "<group>"; };
 		F12DAA19197065E1F3D9FB6F /* Pods_ReciPlan.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ReciPlan.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -96,6 +98,7 @@
 				A527EC67249C1BE300C360FE /* SceneDelegate.swift */,
 				A527EC69249C1BE300C360FE /* ViewController.swift */,
 				A527EC6B249C1BE300C360FE /* Main.storyboard */,
+				A531B324249D610B00937344 /* MyRecipes.swift */,
 				A527EC86249C293E00C360FE /* Planner.swift */,
 				A527EC84249C24B800C360FE /* IngredientSelector.swift */,
 				A527EC82249C222100C360FE /* IngredientMaker.swift */,
@@ -233,6 +236,7 @@
 				A527EC70249C1BE300C360FE /* ReciPlan.xcdatamodeld in Sources */,
 				A527EC7D249C1CA000C360FE /* RecipeMaker.swift in Sources */,
 				A527EC87249C293E00C360FE /* Planner.swift in Sources */,
+				A531B325249D610B00937344 /* MyRecipes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
