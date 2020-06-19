@@ -253,9 +253,6 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="h8y-1U-8Rm" kind="show" id="Q68-30-mXr"/>
-                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="gmk-tF-zJf" style="IBUITableViewCellStyleDefault" id="e4Z-O0-HPW">
                                         <rect key="frame" x="0.0" y="83.5" width="374" height="43.5"/>
@@ -273,6 +270,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="h8y-1U-8Rm" kind="show" id="HbA-P6-iP8"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
