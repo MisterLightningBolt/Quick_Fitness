@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6250A8668E4D0318D2028045 /* Pods_ReciPlan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F12DAA19197065E1F3D9FB6F /* Pods_ReciPlan.framework */; };
 		A527EC66249C1BE300C360FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A527EC65249C1BE300C360FE /* AppDelegate.swift */; };
 		A527EC68249C1BE300C360FE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A527EC67249C1BE300C360FE /* SceneDelegate.swift */; };
 		A527EC6A249C1BE300C360FE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A527EC69249C1BE300C360FE /* ViewController.swift */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5E6D2AAB08C8570C07322A08 /* Pods-ReciPlan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReciPlan.release.xcconfig"; path = "Target Support Files/Pods-ReciPlan/Pods-ReciPlan.release.xcconfig"; sourceTree = "<group>"; };
 		A527EC62249C1BE300C360FE /* ReciPlan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReciPlan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A527EC65249C1BE300C360FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A527EC67249C1BE300C360FE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -36,6 +38,8 @@
 		A527EC82249C222100C360FE /* IngredientMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientMaker.swift; sourceTree = "<group>"; };
 		A527EC84249C24B800C360FE /* IngredientSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientSelector.swift; sourceTree = "<group>"; };
 		A527EC86249C293E00C360FE /* Planner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Planner.swift; sourceTree = "<group>"; };
+		B47FFAA80F82B18E67604002 /* Pods-ReciPlan.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReciPlan.debug.xcconfig"; path = "Target Support Files/Pods-ReciPlan/Pods-ReciPlan.debug.xcconfig"; sourceTree = "<group>"; };
+		F12DAA19197065E1F3D9FB6F /* Pods_ReciPlan.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ReciPlan.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,17 +47,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6250A8668E4D0318D2028045 /* Pods_ReciPlan.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4D2EF964164AED2D39AC8A69 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F12DAA19197065E1F3D9FB6F /* Pods_ReciPlan.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4F5214B51784640F063A6402 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B47FFAA80F82B18E67604002 /* Pods-ReciPlan.debug.xcconfig */,
+				5E6D2AAB08C8570C07322A08 /* Pods-ReciPlan.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		A527EC59249C1BE300C360FE = {
 			isa = PBXGroup;
 			children = (
 				A527EC64249C1BE300C360FE /* ReciPlan */,
 				A527EC63249C1BE300C360FE /* Products */,
+				4F5214B51784640F063A6402 /* Pods */,
+				4D2EF964164AED2D39AC8A69 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -92,9 +116,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A527EC79249C1BE500C360FE /* Build configuration list for PBXNativeTarget "ReciPlan" */;
 			buildPhases = (
+				C0989D9B5BABC50EF7A51AD8 /* [CP] Check Pods Manifest.lock */,
 				A527EC5E249C1BE300C360FE /* Sources */,
 				A527EC5F249C1BE300C360FE /* Frameworks */,
 				A527EC60249C1BE300C360FE /* Resources */,
+				A85D82B55302715FC3A720BD /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -150,6 +176,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A85D82B55302715FC3A720BD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ReciPlan/Pods-ReciPlan-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ReciPlan/Pods-ReciPlan-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ReciPlan/Pods-ReciPlan-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C0989D9B5BABC50EF7A51AD8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ReciPlan-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A527EC5E249C1BE300C360FE /* Sources */ = {
@@ -306,10 +374,13 @@
 		};
 		A527EC7A249C1BE500C360FE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B47FFAA80F82B18E67604002 /* Pods-ReciPlan.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = RY43KC8894;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = ReciPlan/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -324,10 +395,13 @@
 		};
 		A527EC7B249C1BE500C360FE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5E6D2AAB08C8570C07322A08 /* Pods-ReciPlan.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = RY43KC8894;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = ReciPlan/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
