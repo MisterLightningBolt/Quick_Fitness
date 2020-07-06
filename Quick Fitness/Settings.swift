@@ -9,7 +9,7 @@
 
 import UIKit
 
-class Settings: UITableView {
+class Settings: UITableViewController {
 
     /*
     // Only override draw() if you perform custom drawing.

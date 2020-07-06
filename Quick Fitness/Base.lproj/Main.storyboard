@@ -168,7 +168,7 @@
         <!--Settings-->
         <scene sceneID="tEE-hw-1Ne">
             <objects>
-                <tableViewController id="vWP-ea-rWt" sceneMemberID="viewController">
+                <tableViewController id="vWP-ea-rWt" customClass="Settings" customModule="Quick_Fitness" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Z40-hw-1Vs" customClass="Settings" customModule="Quick_Fitness" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -430,6 +430,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="MVJ-GA-JPA"/>
-        <segue reference="E1C-V2-e83"/>
+        <segue reference="zQr-KS-yOe"/>
     </inferredMetricsTieBreakers>
 </document>
