@@ -77,7 +77,7 @@
         <!--My Routines-->
         <scene sceneID="syZ-P3-Suo">
             <objects>
-                <tableViewController id="4LE-GK-MCu" sceneMemberID="viewController">
+                <tableViewController id="4LE-GK-MCu" customClass="MyRoutines" customModule="Quick_Fitness" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="bpm-Eu-pOa">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -430,6 +430,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="MVJ-GA-JPA"/>
-        <segue reference="TFW-fW-38X"/>
+        <segue reference="E1C-V2-e83"/>
     </inferredMetricsTieBreakers>
 </document>
