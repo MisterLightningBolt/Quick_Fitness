@@ -7,9 +7,9 @@
         <attribute name="name" optional="YES" attributeType="String"/>
         <relationship name="exercise" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Exercise"/>
     </entity>
-    <entity name="Settings" representedClassName="Settings" syncable="YES" codeGenerationType="class">
-        <attribute name="calendarNotificationsEnabled" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
-        <attribute name="darkModeEnabled" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+    <entity name="Settings" representedClassName="Settings" syncable="YES">
+        <attribute name="calendarNotificationsEnabled" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES"/>
+        <attribute name="darkModeEnabled" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
     </entity>
     <elements>
         <element name="Exercise" positionX="-63" positionY="-18" width="128" height="58"/>

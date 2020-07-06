@@ -26,6 +26,8 @@
 		A5B7C64824B3CEA900A667A6 /* Exercise+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B7C64224B3CEA900A667A6 /* Exercise+CoreDataClass.swift */; };
 		A5B7C64924B3CEA900A667A6 /* Exercise+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B7C64324B3CEA900A667A6 /* Exercise+CoreDataProperties.swift */; };
 		A5CB288C24B3D4E500AFB7FA /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CB288B24B3D4E500AFB7FA /* SettingsTableViewController.swift */; };
+		A5CB289024B3DBD900AFB7FA /* Settings+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CB288D24B3DBD900AFB7FA /* Settings+CoreDataProperties.swift */; };
+		A5CB289124B3DBD900AFB7FA /* Settings+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CB288E24B3DBD900AFB7FA /* Settings+CoreDataClass.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +54,8 @@
 		A5B7C64224B3CEA900A667A6 /* Exercise+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Exercise+CoreDataClass.swift"; sourceTree = "<group>"; };
 		A5B7C64324B3CEA900A667A6 /* Exercise+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Exercise+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		A5CB288B24B3D4E500AFB7FA /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		A5CB288D24B3DBD900AFB7FA /* Settings+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Settings+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		A5CB288E24B3DBD900AFB7FA /* Settings+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Settings+CoreDataClass.swift"; sourceTree = "<group>"; };
 		AD5E8BA004CA3D793790DFD4 /* Pods_Quick_Fitness.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Quick_Fitness.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B47FFAA80F82B18E67604002 /* Pods-ReciPlan.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReciPlan.debug.xcconfig"; path = "Target Support Files/Pods-ReciPlan/Pods-ReciPlan.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -108,6 +112,8 @@
 		A527EC64249C1BE300C360FE /* Quick Fitness */ = {
 			isa = PBXGroup;
 			children = (
+				A5CB288D24B3DBD900AFB7FA /* Settings+CoreDataProperties.swift */,
+				A5CB288E24B3DBD900AFB7FA /* Settings+CoreDataClass.swift */,
 				A5B7C64024B3CEA900A667A6 /* Routine+CoreDataClass.swift */,
 				A5B7C64124B3CEA900A667A6 /* Routine+CoreDataProperties.swift */,
 				A5B7C64224B3CEA900A667A6 /* Exercise+CoreDataClass.swift */,
@@ -254,9 +260,11 @@
 				A527EC66249C1BE300C360FE /* AppDelegate.swift in Sources */,
 				A527EC68249C1BE300C360FE /* SceneDelegate.swift in Sources */,
 				A527EC83249C222100C360FE /* ExerciseMaker.swift in Sources */,
+				A5CB289024B3DBD900AFB7FA /* Settings+CoreDataProperties.swift in Sources */,
 				A527EC70249C1BE300C360FE /* Quick_Fitness.xcdatamodeld in Sources */,
 				A527EC7D249C1CA000C360FE /* RoutineMaker.swift in Sources */,
 				A527EC87249C293E00C360FE /* Planner.swift in Sources */,
+				A5CB289124B3DBD900AFB7FA /* Settings+CoreDataClass.swift in Sources */,
 				A5CB288C24B3D4E500AFB7FA /* SettingsTableViewController.swift in Sources */,
 				A531B325249D610B00937344 /* MyRoutines.swift in Sources */,
 				A5B7C64724B3CEA900A667A6 /* Routine+CoreDataProperties.swift in Sources */,

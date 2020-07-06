@@ -160,7 +160,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="H1S-jn-whm">
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" selected="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="H1S-jn-whm">
                                                     <rect key="frame" x="347" y="6" width="49" height="31"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </switch>
@@ -203,7 +203,7 @@
                             <outlet property="delegate" destination="W1X-t2-0kH" id="AES-Mz-xBK"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="bHW-em-OAV"/>
+                    <navigationItem key="navigationItem" title="Settings" id="bHW-em-OAV"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lQ1-gN-lmL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

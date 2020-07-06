@@ -13,7 +13,7 @@ import UIKit
 
 class CoreDataManager {
 	
-	private static func searchEntities(entityName: String, name: String) -> [NSManagedObject] {
+	private static func searchEntities(entityName: String, name: String?) -> [NSManagedObject] {
 		let appDelegate = UIApplication.shared.delegate as! AppDelegate
 		let context = appDelegate.persistentContainer.viewContext
 		
@@ -21,8 +21,10 @@ class CoreDataManager {
 		
 		var fetchedResults: [NSManagedObject]? = nil
 		
-		let predicate = NSPredicate(format: "name == %@", name)
-		request.predicate = predicate
+		if name != nil {
+			let predicate = NSPredicate(format: "name == %@", name!)
+			request.predicate = predicate
+		}
 		
 		do {
 			try fetchedResults = context.fetch(request) as? [NSManagedObject]
@@ -62,6 +64,22 @@ class CoreDataManager {
 	
 	static func fetchRoutine(name: String) throws -> Routine {
 		return try fetchSingleEntity(entityName: "Routine", name: name) as! Routine
+	}
+	
+	static func fetchSettings() -> Settings {
+		let result = searchEntities(entityName: "Settings", name: nil)
+		
+		if result.isEmpty {
+			// No settings saved. Make new settings.
+			
+			let appDelegate = UIApplication.shared.delegate as! AppDelegate
+			let context = appDelegate.persistentContainer.viewContext
+			return NSEntityDescription.insertNewObject(
+				forEntityName: "Settings", into: context) as! Settings
+//			return Settings(entity: NSEntityDescription(), insertInto: context)
+		} else {
+			return result[0] as! Settings
+		}
 	}
 }
 
