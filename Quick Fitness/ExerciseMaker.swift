@@ -11,13 +11,32 @@ import UIKit
 
 class ExerciseMaker: UIViewController {
 
-    override func viewDidLoad() {
+	@IBOutlet weak var exerciseNameField: UITextField!
+	
+	override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
-
+	func exerciseCreationFailed(message: String) {
+		let controller = UIAlertController(
+			title: "Failed to create exercise",
+			message: message,
+			preferredStyle: .alert)
+		present(controller, animated: true, completion: nil)
+	}
+	
+	@IBAction func saveExercisePressed(_ sender: Any) {
+		guard let exerciseName: String = exerciseNameField.text, !exerciseName.isEmpty else {
+			self.exerciseCreationFailed(message: "Please enter an exercise name")
+			return
+		}
+		// TODO: Check if exercise name is duplicate
+		
+		// TODO: Save exercise in core data
+	}
+	
     /*
     // MARK: - Navigation
 
