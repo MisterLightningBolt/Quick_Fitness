@@ -21,6 +21,7 @@
 		A527EC85249C24B800C360FE /* ExerciseSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = A527EC84249C24B800C360FE /* ExerciseSelector.swift */; };
 		A527EC87249C293E00C360FE /* Planner.swift in Sources */ = {isa = PBXBuildFile; fileRef = A527EC86249C293E00C360FE /* Planner.swift */; };
 		A531B325249D610B00937344 /* MyRoutines.swift in Sources */ = {isa = PBXBuildFile; fileRef = A531B324249D610B00937344 /* MyRoutines.swift */; };
+		A5B7C61924B3B73200A667A6 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B7C61824B3B73200A667A6 /* CoreDataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		A527EC84249C24B800C360FE /* ExerciseSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseSelector.swift; sourceTree = "<group>"; };
 		A527EC86249C293E00C360FE /* Planner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Planner.swift; sourceTree = "<group>"; };
 		A531B324249D610B00937344 /* MyRoutines.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRoutines.swift; sourceTree = "<group>"; };
+		A5B7C61824B3B73200A667A6 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		AD5E8BA004CA3D793790DFD4 /* Pods_Quick_Fitness.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Quick_Fitness.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B47FFAA80F82B18E67604002 /* Pods-ReciPlan.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReciPlan.debug.xcconfig"; path = "Target Support Files/Pods-ReciPlan/Pods-ReciPlan.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -102,6 +104,7 @@
 				A527EC67249C1BE300C360FE /* SceneDelegate.swift */,
 				A527EC69249C1BE300C360FE /* ViewController.swift */,
 				A527EC6B249C1BE300C360FE /* Main.storyboard */,
+				A5B7C61824B3B73200A667A6 /* CoreDataManager.swift */,
 				A531B324249D610B00937344 /* MyRoutines.swift */,
 				A527EC86249C293E00C360FE /* Planner.swift */,
 				A527EC84249C24B800C360FE /* ExerciseSelector.swift */,
@@ -241,6 +244,7 @@
 				A527EC7D249C1CA000C360FE /* RoutineMaker.swift in Sources */,
 				A527EC87249C293E00C360FE /* Planner.swift in Sources */,
 				A531B325249D610B00937344 /* MyRoutines.swift in Sources */,
+				A5B7C61924B3B73200A667A6 /* CoreDataManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
