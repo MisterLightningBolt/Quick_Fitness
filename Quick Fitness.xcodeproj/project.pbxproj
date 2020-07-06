@@ -16,12 +16,16 @@
 		A527EC72249C1BE500C360FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A527EC71249C1BE500C360FE /* Assets.xcassets */; };
 		A527EC75249C1BE500C360FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A527EC73249C1BE500C360FE /* LaunchScreen.storyboard */; };
 		A527EC7D249C1CA000C360FE /* RoutineMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A527EC7C249C1CA000C360FE /* RoutineMaker.swift */; };
-		A527EC81249C1D3600C360FE /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A527EC80249C1D3600C360FE /* Settings.swift */; };
 		A527EC83249C222100C360FE /* ExerciseMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A527EC82249C222100C360FE /* ExerciseMaker.swift */; };
 		A527EC85249C24B800C360FE /* ExerciseSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = A527EC84249C24B800C360FE /* ExerciseSelector.swift */; };
 		A527EC87249C293E00C360FE /* Planner.swift in Sources */ = {isa = PBXBuildFile; fileRef = A527EC86249C293E00C360FE /* Planner.swift */; };
 		A531B325249D610B00937344 /* MyRoutines.swift in Sources */ = {isa = PBXBuildFile; fileRef = A531B324249D610B00937344 /* MyRoutines.swift */; };
 		A5B7C61924B3B73200A667A6 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B7C61824B3B73200A667A6 /* CoreDataManager.swift */; };
+		A5B7C64624B3CEA900A667A6 /* Routine+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B7C64024B3CEA900A667A6 /* Routine+CoreDataClass.swift */; };
+		A5B7C64724B3CEA900A667A6 /* Routine+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B7C64124B3CEA900A667A6 /* Routine+CoreDataProperties.swift */; };
+		A5B7C64824B3CEA900A667A6 /* Exercise+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B7C64224B3CEA900A667A6 /* Exercise+CoreDataClass.swift */; };
+		A5B7C64924B3CEA900A667A6 /* Exercise+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B7C64324B3CEA900A667A6 /* Exercise+CoreDataProperties.swift */; };
+		A5CB288C24B3D4E500AFB7FA /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CB288B24B3D4E500AFB7FA /* SettingsTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,12 +42,16 @@
 		A527EC74249C1BE500C360FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A527EC76249C1BE500C360FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A527EC7C249C1CA000C360FE /* RoutineMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineMaker.swift; sourceTree = "<group>"; };
-		A527EC80249C1D3600C360FE /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		A527EC82249C222100C360FE /* ExerciseMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseMaker.swift; sourceTree = "<group>"; };
 		A527EC84249C24B800C360FE /* ExerciseSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseSelector.swift; sourceTree = "<group>"; };
 		A527EC86249C293E00C360FE /* Planner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Planner.swift; sourceTree = "<group>"; };
 		A531B324249D610B00937344 /* MyRoutines.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRoutines.swift; sourceTree = "<group>"; };
 		A5B7C61824B3B73200A667A6 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		A5B7C64024B3CEA900A667A6 /* Routine+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Routine+CoreDataClass.swift"; sourceTree = "<group>"; };
+		A5B7C64124B3CEA900A667A6 /* Routine+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Routine+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		A5B7C64224B3CEA900A667A6 /* Exercise+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Exercise+CoreDataClass.swift"; sourceTree = "<group>"; };
+		A5B7C64324B3CEA900A667A6 /* Exercise+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Exercise+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		A5CB288B24B3D4E500AFB7FA /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		AD5E8BA004CA3D793790DFD4 /* Pods_Quick_Fitness.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Quick_Fitness.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B47FFAA80F82B18E67604002 /* Pods-ReciPlan.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReciPlan.debug.xcconfig"; path = "Target Support Files/Pods-ReciPlan/Pods-ReciPlan.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -100,16 +108,20 @@
 		A527EC64249C1BE300C360FE /* Quick Fitness */ = {
 			isa = PBXGroup;
 			children = (
+				A5B7C64024B3CEA900A667A6 /* Routine+CoreDataClass.swift */,
+				A5B7C64124B3CEA900A667A6 /* Routine+CoreDataProperties.swift */,
+				A5B7C64224B3CEA900A667A6 /* Exercise+CoreDataClass.swift */,
+				A5B7C64324B3CEA900A667A6 /* Exercise+CoreDataProperties.swift */,
 				A527EC65249C1BE300C360FE /* AppDelegate.swift */,
 				A527EC67249C1BE300C360FE /* SceneDelegate.swift */,
 				A527EC69249C1BE300C360FE /* ViewController.swift */,
 				A527EC6B249C1BE300C360FE /* Main.storyboard */,
+				A5CB288B24B3D4E500AFB7FA /* SettingsTableViewController.swift */,
 				A5B7C61824B3B73200A667A6 /* CoreDataManager.swift */,
 				A531B324249D610B00937344 /* MyRoutines.swift */,
 				A527EC86249C293E00C360FE /* Planner.swift */,
 				A527EC84249C24B800C360FE /* ExerciseSelector.swift */,
 				A527EC82249C222100C360FE /* ExerciseMaker.swift */,
-				A527EC80249C1D3600C360FE /* Settings.swift */,
 				A527EC7C249C1CA000C360FE /* RoutineMaker.swift */,
 				A527EC71249C1BE500C360FE /* Assets.xcassets */,
 				A527EC73249C1BE500C360FE /* LaunchScreen.storyboard */,
@@ -234,8 +246,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5B7C64624B3CEA900A667A6 /* Routine+CoreDataClass.swift in Sources */,
 				A527EC85249C24B800C360FE /* ExerciseSelector.swift in Sources */,
-				A527EC81249C1D3600C360FE /* Settings.swift in Sources */,
+				A5B7C64924B3CEA900A667A6 /* Exercise+CoreDataProperties.swift in Sources */,
+				A5B7C64824B3CEA900A667A6 /* Exercise+CoreDataClass.swift in Sources */,
 				A527EC6A249C1BE300C360FE /* ViewController.swift in Sources */,
 				A527EC66249C1BE300C360FE /* AppDelegate.swift in Sources */,
 				A527EC68249C1BE300C360FE /* SceneDelegate.swift in Sources */,
@@ -243,7 +257,9 @@
 				A527EC70249C1BE300C360FE /* Quick_Fitness.xcdatamodeld in Sources */,
 				A527EC7D249C1CA000C360FE /* RoutineMaker.swift in Sources */,
 				A527EC87249C293E00C360FE /* Planner.swift in Sources */,
+				A5CB288C24B3D4E500AFB7FA /* SettingsTableViewController.swift in Sources */,
 				A531B325249D610B00937344 /* MyRoutines.swift in Sources */,
+				A5B7C64724B3CEA900A667A6 /* Routine+CoreDataProperties.swift in Sources */,
 				A5B7C61924B3B73200A667A6 /* CoreDataManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
