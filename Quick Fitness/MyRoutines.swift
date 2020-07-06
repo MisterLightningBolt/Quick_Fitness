@@ -14,7 +14,7 @@ let routineCellID: String = "RoutineCell"
 let newRoutineCellID: String = "NewRoutineCell"
 
 class MyRoutines: UITableViewController {
-	var routines: [NSManagedObject] = CoreDataManager.fetchAllRoutines()
+	var routines: [Routine] = CoreDataManager.fetchAllRoutines()
 	
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +28,6 @@ class MyRoutines: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
@@ -61,7 +60,7 @@ class MyRoutines: UITableViewController {
 		let routine = routines[indexPath.row]
 		cell.textLabel?.text = "NAME OF ROUTINE"
 		return cell
-		}
+	}
 
     /*
     // Override to support conditional editing of the table view.

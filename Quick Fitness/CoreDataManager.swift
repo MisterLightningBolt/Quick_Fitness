@@ -48,20 +48,20 @@ class CoreDataManager {
 		return fetchedResults[0]
 	}
 	
-	static func fetchAllExercises() -> [NSManagedObject] {
-		return searchEntities(entityName: "Exercise", name: "*")
+	static func fetchAllExercises() -> [Exercise] {
+		return searchEntities(entityName: "Exercise", name: "*") as! [Exercise]
 	}
 	
-	static func fetchExercise(name: String) throws -> NSManagedObject {
-		return try fetchSingleEntity(entityName: "Exercise", name: name)
+	static func fetchExercise(name: String) throws -> Exercise {
+		return try fetchSingleEntity(entityName: "Exercise", name: name) as! Exercise
 	}
 	
-	static func fetchAllRoutines() -> [NSManagedObject] {
-		return searchEntities(entityName: "Routine", name: "*")
+	static func fetchAllRoutines() -> [Routine] {
+		return searchEntities(entityName: "Routine", name: "*") as! [Routine]
 	}
 	
-	static func fetchRoutine(name: String) throws -> NSManagedObject {
-		return try fetchSingleEntity(entityName: "Routine", name: name)
+	static func fetchRoutine(name: String) throws -> Routine {
+		return try fetchSingleEntity(entityName: "Routine", name: name) as! Routine
 	}
 }
 
