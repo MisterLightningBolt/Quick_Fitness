@@ -23,6 +23,11 @@ class ExerciseSelector: UIViewController, UITableViewDataSource, UITableViewDele
 		tableView.dataSource = self
 	}
 	
+	override func viewDidAppear(_ animated: Bool) {
+		exercises = CoreDataManager.fetchAllExercises()
+		tableView.reloadData()
+	}
+	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return exercises.count + 1
 	}
