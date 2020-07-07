@@ -76,7 +76,6 @@ class CoreDataManager {
 			let context = appDelegate.persistentContainer.viewContext
 			return NSEntityDescription.insertNewObject(
 				forEntityName: "Settings", into: context) as! Settings
-//			return Settings(entity: NSEntityDescription(), insertInto: context)
 		} else {
 			return result[0] as! Settings
 		}
