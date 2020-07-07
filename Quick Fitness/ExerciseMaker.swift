@@ -24,6 +24,10 @@ class ExerciseMaker: UIViewController {
 			title: "Failed to create exercise",
 			message: message,
 			preferredStyle: .alert)
+		controller.addAction(UIAlertAction(
+		title: "OK",
+		style: .default,
+		handler: nil))
 		present(controller, animated: true, completion: nil)
 	}
 	
@@ -32,9 +36,22 @@ class ExerciseMaker: UIViewController {
 			self.exerciseCreationFailed(message: "Please enter an exercise name")
 			return
 		}
-		// TODO: Check if exercise name is duplicate
 		
-		// TODO: Save exercise in core data
+		// Check if exercise name is duplicate
+		do {
+			try _ = CoreDataManager.fetchExercise(name: exerciseName)
+		} catch FetchError.itemNotFound {
+			// Save exercise in core data
+			CoreDataManager.storeExercise(name: exerciseName)
+			return
+		} catch FetchError.duplicateItemsFound {
+			self.exerciseCreationFailed(message: "Multiple exercises of the same name already exist!")
+			return
+		} catch {
+			CoreDataManager.logErrorAndAbort(error: error)
+		}
+		
+		self.exerciseCreationFailed(message: "Exercise already exists!")
 	}
 	
 	// code to enable tapping on the background to remove software keyboard

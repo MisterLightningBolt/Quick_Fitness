@@ -30,10 +30,7 @@ class CoreDataManager {
 			try fetchedResults = context.fetch(request) as? [NSManagedObject]
 			return fetchedResults ?? []
 		} catch {
-			// if an error occurs
-			let nserror = error as NSError
-			NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
-			abort()
+			self.logErrorAndAbort(error: error)
 		}
 	}
 	
@@ -79,6 +76,30 @@ class CoreDataManager {
 		} else {
 			return result[0] as! Settings
 		}
+	}
+	
+	static func storeExercise(name: String) {
+		let appDelegate = UIApplication.shared.delegate as! AppDelegate
+		let context = appDelegate.persistentContainer.viewContext
+		
+		let user = NSEntityDescription.insertNewObject(
+			forEntityName: "Exercise", into:context)
+		
+		// Set the attribute values
+		user.setValue(name, forKey: "name")
+		
+		// Commit the changes
+		do {
+			try context.save()
+		} catch {
+			self.logErrorAndAbort(error: error)
+		}
+	}
+	
+	static func logErrorAndAbort(error: Error) -> Never {
+		let nserror = error as NSError
+		NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
+		abort()
 	}
 }
 
