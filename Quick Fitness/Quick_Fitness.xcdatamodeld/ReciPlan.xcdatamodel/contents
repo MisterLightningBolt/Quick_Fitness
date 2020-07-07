@@ -5,7 +5,7 @@
     </entity>
     <entity name="Routine" representedClassName="Routine" syncable="YES">
         <attribute name="name" attributeType="String"/>
-        <relationship name="exercise" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Exercise"/>
+        <relationship name="exercises" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Exercise"/>
     </entity>
     <entity name="Settings" representedClassName="Settings" syncable="YES">
         <attribute name="calendarNotificationsEnabled" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES"/>

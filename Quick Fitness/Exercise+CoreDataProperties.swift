@@ -1,5 +1,5 @@
 //
-// Exercise+CoreDataProperties.swift: HillAndrew-HW1
+// Exercise+CoreDataProperties.swift: HillAndrew-Project
 // EID: awh772
 // Course: CS371L
 //

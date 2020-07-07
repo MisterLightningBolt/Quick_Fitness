@@ -1,5 +1,5 @@
 //
-// Settings+CoreDataClass.swift: HillAndrew-HW1
+// Settings+CoreDataClass.swift: HillAndrew-Project
 // EID: awh772
 // Course: CS371L
 //

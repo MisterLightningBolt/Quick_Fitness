@@ -1,5 +1,5 @@
 //
-// SettingsTableViewController.swift: HillAndrew-HW1
+// SettingsTableViewController.swift: HillAndrew-Project
 // EID: awh772
 // Course: CS371L
 //
