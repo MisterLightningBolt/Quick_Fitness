@@ -11,6 +11,8 @@ import Foundation
 import CoreData
 import UIKit
 
+let entityTypes: [String] = ["Settings", "Routine", "Exercise"]
+
 class CoreDataManager {
 	
 	private static func searchEntities(entityName: String, name: String?) -> [NSManagedObject] {
@@ -21,14 +23,14 @@ class CoreDataManager {
 		
 		var fetchedResults: [NSManagedObject]? = nil
 		
-		if name != nil {
+		if name != nil && name != "*" {
 			let predicate = NSPredicate(format: "name == %@", name!)
 			request.predicate = predicate
 		}
 		
 		do {
 			try fetchedResults = context.fetch(request) as? [NSManagedObject]
-			return fetchedResults ?? []
+			return fetchedResults!
 		} catch {
 			self.logErrorAndAbort(error: error)
 		}
@@ -82,11 +84,11 @@ class CoreDataManager {
 		let appDelegate = UIApplication.shared.delegate as! AppDelegate
 		let context = appDelegate.persistentContainer.viewContext
 		
-		let user = NSEntityDescription.insertNewObject(
+		let exercise = NSEntityDescription.insertNewObject(
 			forEntityName: "Exercise", into:context)
 		
 		// Set the attribute values
-		user.setValue(name, forKey: "name")
+		exercise.setValue(name, forKey: "name")
 		
 		// Commit the changes
 		do {
@@ -94,6 +96,36 @@ class CoreDataManager {
 		} catch {
 			self.logErrorAndAbort(error: error)
 		}
+	}
+	
+	static func clearCoreData() {
+		for entityType in entityTypes {
+			self.deleteEntities(ofType: entityType)
+		}
+    }
+	
+	static func deleteEntities(ofType: String) {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: ofType)
+		
+        var fetchedResults: [NSManagedObject]
+        
+        do {
+            try fetchedResults = context.fetch(request) as! [NSManagedObject]
+            
+            if fetchedResults.count > 0 {
+                
+                for result:AnyObject in fetchedResults {
+                    context.delete(result as! NSManagedObject)
+                }
+            }
+            try context.save()
+            
+		} catch {
+			self.logErrorAndAbort(error: error)
+        }
 	}
 	
 	static func logErrorAndAbort(error: Error) -> Never {
