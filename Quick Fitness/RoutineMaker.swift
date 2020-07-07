@@ -15,14 +15,23 @@ class RoutineMaker: UIViewController, UITableViewDataSource, UITableViewDelegate
 	@IBOutlet weak var routineNameField: UITextField!
 	@IBOutlet weak var tableView: UITableView!
 	
-	// TODO: Fetch only exercises related to this routine
-	var exercises: [Exercise] = CoreDataManager.fetchAllExercises()
+	var routine: Routine?
+	var exercises: [Exercise] = []
 	
     override func viewDidLoad() {
         super.viewDidLoad()
 		tableView.delegate = self
         tableView.dataSource = self
     }
+	
+	override func viewWillAppear(_ animated: Bool) {
+		// If we're loading an existing routine, load its exercises.
+		if routine != nil {
+			routineNameField.text = routine!.name
+			exercises = routine!.exercisesArray
+			tableView.reloadData()
+		}
+	}
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return exercises.count + 1
