@@ -15,6 +15,7 @@ let newExerciseCellID: String = "NewExerciseCell"
 class ExerciseSelector: UIViewController, UITableViewDataSource, UITableViewDelegate {
 	@IBOutlet weak var tableView: UITableView!
 	
+	var delegate: AddsExercises?
 	var exercises: [Exercise] = CoreDataManager.fetchAllExercises()
 	
 	override func viewDidLoad() {
@@ -90,8 +91,15 @@ class ExerciseSelector: UIViewController, UITableViewDataSource, UITableViewDele
 		}
 	}
 	
+	// Add all selected exercises to delegate and pop view
 	@IBAction func donePressed(_ sender: Any) {
-		var selectedPaths: [IndexPath] = tableView.indexPathsForSelectedRows as? [IndexPath] ?? []
+		// Add selected exercises to delegate
+		let selectedIndexPaths = self.tableView.indexPathsForSelectedRows ?? []
+		for selectedPath in selectedIndexPaths {
+			delegate?.addExercise(exercise: exercises[selectedPath.row])
+		}
+		// Pop view
+		self.navigationController?.popViewController(animated: true)
 	}
 	
 	/*

@@ -277,7 +277,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="h8y-1U-8Rm" kind="show" id="HbA-P6-iP8"/>
+                                            <segue destination="h8y-1U-8Rm" kind="show" identifier="RoutineMakerToExerciseSelector" id="HbA-P6-iP8"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

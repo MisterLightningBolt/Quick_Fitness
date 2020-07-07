@@ -10,8 +10,9 @@
 import UIKit
 let exerciseCellID: String = "ExerciseCell"
 let addExerciseCellID: String = "AddExerciseCell"
+let routineMakerToExerciseSelectorID: String = "RoutineMakerToExerciseSelector"
 
-class RoutineMaker: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class RoutineMaker: UIViewController, UITableViewDataSource, UITableViewDelegate, AddsExercises {
 	@IBOutlet weak var routineNameField: UITextField!
 	@IBOutlet weak var tableView: UITableView!
 	
@@ -26,11 +27,11 @@ class RoutineMaker: UIViewController, UITableViewDataSource, UITableViewDelegate
 	
 	override func viewWillAppear(_ animated: Bool) {
 		// If we're loading an existing routine, load its exercises.
-		if routine != nil {
+		if routine != nil && exercises.isEmpty {
 			routineNameField.text = routine!.name
 			exercises = routine!.exercisesArray
-			tableView.reloadData()
 		}
+		tableView.reloadData()
 	}
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -62,6 +63,10 @@ class RoutineMaker: UIViewController, UITableViewDataSource, UITableViewDelegate
 		return cell
 	}
 	
+	func addExercise(exercise: Exercise) {
+		exercises.append(exercise)
+	}
+	
 	// TODO: Add option to delete cell
 	
 	// code to enable tapping on the background to remove software keyboard
@@ -75,14 +80,16 @@ class RoutineMaker: UIViewController, UITableViewDataSource, UITableViewDelegate
         self.view.endEditing(true)
     }
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+		if segue.identifier == routineMakerToExerciseSelectorID {
+			let dest = segue.destination as! ExerciseSelector
+			dest.delegate = self
+		}
     }
-    */
 
 }
