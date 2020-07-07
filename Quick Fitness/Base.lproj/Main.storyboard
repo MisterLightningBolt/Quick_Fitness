@@ -360,7 +360,9 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="bCB-rZ-Y0v"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Select Exercise(s)" id="LLF-Km-RZT"/>
+                    <navigationItem key="navigationItem" title="Select Exercise(s)" id="LLF-Km-RZT">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="kA1-Yq-Hje"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="oz4-73-rgi" id="EOj-SV-buJ"/>
                     </connections>
