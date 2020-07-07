@@ -104,16 +104,12 @@ class CoreDataManager {
 		}
     }
 	
-	static func deleteEntities(ofType: String) {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+	static func deleteRequestResults(request: NSFetchRequest<NSFetchRequestResult>) {
+		let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
-        
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: ofType)
 		
-        var fetchedResults: [NSManagedObject]
-        
-        do {
-            try fetchedResults = context.fetch(request) as! [NSManagedObject]
+		do {
+			let fetchedResults = try context.fetch(request) as! [NSManagedObject]
             
             if fetchedResults.count > 0 {
                 
@@ -126,6 +122,28 @@ class CoreDataManager {
 		} catch {
 			self.logErrorAndAbort(error: error)
         }
+	}
+	
+	static func deleteEntities(ofType: String) {
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: ofType)
+        
+		self.deleteRequestResults(request: request)
+	}
+	
+	static func deleteExercise(name: String) {
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Exercise")
+		let predicate = NSPredicate(format: "name == %@", name)
+		request.predicate = predicate
+		
+		self.deleteRequestResults(request: request)
+	}
+	
+	static func deleteRoutine(name: String) {
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Routine")
+		let predicate = NSPredicate(format: "name == %@", name)
+		request.predicate = predicate
+		
+		self.deleteRequestResults(request: request)
 	}
 	
 	static func logErrorAndAbort(error: Error) -> Never {
