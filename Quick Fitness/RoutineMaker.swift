@@ -15,6 +15,7 @@ class RoutineMaker: UIViewController, UITableViewDataSource, UITableViewDelegate
 	@IBOutlet weak var routineNameField: UITextField!
 	@IBOutlet weak var tableView: UITableView!
 	
+	// TODO: Fetch only exercises related to this routine
 	var exercises: [Exercise] = CoreDataManager.fetchAllExercises()
 	
     override func viewDidLoad() {
@@ -51,6 +52,8 @@ class RoutineMaker: UIViewController, UITableViewDataSource, UITableViewDelegate
 		cell.textLabel?.text = exercise.name
 		return cell
 	}
+	
+	// TODO: Add option to delete cell
 	
 	// code to enable tapping on the background to remove software keyboard
 	
