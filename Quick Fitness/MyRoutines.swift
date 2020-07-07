@@ -27,14 +27,9 @@ class MyRoutines: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return routines.count + 1
     }
-
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
@@ -58,7 +53,7 @@ class MyRoutines: UITableViewController {
 	func loadRoutineCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: routineCellID, for: indexPath)
 		let routine = routines[indexPath.row]
-		cell.textLabel?.text = "NAME OF ROUTINE"
+		cell.textLabel?.text = routine.name
 		return cell
 	}
 

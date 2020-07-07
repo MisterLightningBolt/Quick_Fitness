@@ -8,15 +8,51 @@
 //
 
 import UIKit
+let exerciseCellID: String = "ExerciseCell"
+let addExerciseCellID: String = "AddExerciseCell"
 
-class RoutineMaker: UIViewController {
-
+class RoutineMaker: UIViewController, UITableViewDataSource, UITableViewDelegate {
+	@IBOutlet weak var routineNameField: UITextField!
+	@IBOutlet weak var tableView: UITableView!
+	
+	var exercises: [Exercise] = CoreDataManager.fetchAllExercises()
+	
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+		tableView.delegate = self
+        tableView.dataSource = self
+    }
+	
+	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+		print("exercises.count + 1: \(exercises.count + 1)")
+		return exercises.count + 1
     }
     
+	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
+        // Configure the cell...
+		let row = indexPath.row
+		
+		if row == exercises.count {
+			return loadAddExerciseCell(tableView, cellForRowAt: indexPath)
+		} else {
+			return loadExerciseCell(tableView, cellForRowAt: indexPath)
+		}
+    }
+    
+	func loadAddExerciseCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+		let cell = tableView.dequeueReusableCell(withIdentifier: addExerciseCellID, for: indexPath)
+		cell.textLabel?.text = "Add Exercise"
+		return cell
+	}
+	
+	func loadExerciseCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+		let cell = tableView.dequeueReusableCell(withIdentifier: exerciseCellID, for: indexPath)
+		let exercise = exercises[indexPath.row]
+		cell.textLabel?.text = exercise.name
+		return cell
+	}
+	
 	// code to enable tapping on the background to remove software keyboard
 	
 	func textFieldShouldReturn(textField:UITextField) -> Bool {
