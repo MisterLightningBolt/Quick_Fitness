@@ -21,11 +21,21 @@ class ExerciseSelector: UIViewController, UITableViewDataSource, UITableViewDele
 		super.viewDidLoad()
 		tableView.delegate = self
 		tableView.dataSource = self
-	}
-	
-	override func viewDidAppear(_ animated: Bool) {
 		exercises = CoreDataManager.fetchAllExercises()
 		tableView.reloadData()
+	}
+	
+	// Load new exercises while retaining selected data
+	override func viewDidAppear(_ animated: Bool) {
+		let selectedIndexPaths = self.tableView.indexPathsForSelectedRows ?? []
+		tableView.reloadData()
+		
+		for selectedPath in selectedIndexPaths {
+			// Don't reselect "New Exercise"
+			if selectedPath.row != exercises.count {
+				tableView.selectRow(at: selectedPath, animated: false, scrollPosition: .none)
+			}
+		}
 	}
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -78,6 +88,10 @@ class ExerciseSelector: UIViewController, UITableViewDataSource, UITableViewDele
 			// Insertion is already handled elsewhere.
 			return
 		}
+	}
+	
+	@IBAction func donePressed(_ sender: Any) {
+		var selectedPaths: [IndexPath] = tableView.indexPathsForSelectedRows as? [IndexPath] ?? []
 	}
 	
 	/*

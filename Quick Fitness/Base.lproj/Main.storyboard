@@ -351,7 +351,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="0VW-eG-omw" kind="show" id="MVJ-GA-JPA"/>
+                                            <segue destination="0VW-eG-omw" kind="show" identifier="ExerciseSelectToExerciseMaker" id="MVJ-GA-JPA"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -361,7 +361,11 @@
                         <viewLayoutGuide key="safeArea" id="bCB-rZ-Y0v"/>
                     </view>
                     <navigationItem key="navigationItem" title="Select Exercise(s)" id="LLF-Km-RZT">
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="kA1-Yq-Hje"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="kA1-Yq-Hje">
+                            <connections>
+                                <action selector="donePressed:" destination="h8y-1U-8Rm" id="4KB-60-atw"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="oz4-73-rgi" id="EOj-SV-buJ"/>
