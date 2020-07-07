@@ -112,7 +112,6 @@ class CoreDataManager {
 			let fetchedResults = try context.fetch(request) as! [NSManagedObject]
             
             if fetchedResults.count > 0 {
-                
                 for result:AnyObject in fetchedResults {
                     context.delete(result as! NSManagedObject)
                 }

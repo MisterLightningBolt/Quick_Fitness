@@ -41,7 +41,7 @@ class ExerciseSelector: UIViewController, UITableViewDataSource, UITableViewDele
 	
 	func loadNewExerciseCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: newExerciseCellID, for: indexPath)
-		cell.textLabel?.text = "Add Exercise"
+		cell.textLabel?.text = "New Exercise"
 		return cell
 	}
 	
@@ -51,9 +51,30 @@ class ExerciseSelector: UIViewController, UITableViewDataSource, UITableViewDele
 		cell.textLabel?.text = exercise.name
 		return cell
 	}
-	
-	// TODO: Add option to delete cell
 
+	// Code to delete cell on swipe
+	func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+		if editingStyle == .delete {
+			
+			// Do not delete new exercise cell
+			if indexPath.row == exercises.count + 1 {
+				return
+			}
+			
+			// Delete exercise from list
+			let removedExercise = exercises.remove(at: indexPath.row)
+			
+			// Delete exercise from core data
+			CoreDataManager.deleteExercise(name: removedExercise.name)
+			
+			// Delete exercise from table
+			tableView.deleteRows(at: [indexPath], with: .fade)
+		} else if editingStyle == .insert {
+			// Insertion is already handled elsewhere.
+			return
+		}
+	}
+	
 	/*
 	// MARK: - Navigation
 
