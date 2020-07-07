@@ -304,7 +304,7 @@
             </objects>
             <point key="canvasLocation" x="2576.811594202899" y="101.78571428571428"/>
         </scene>
-        <!--Select Exercise-->
+        <!--Select Exercise(s)-->
         <scene sceneID="tT9-dx-dQR">
             <objects>
                 <viewController id="h8y-1U-8Rm" customClass="ExerciseSelector" customModule="Quick_Fitness" customModuleProvider="target" sceneMemberID="viewController">
@@ -360,7 +360,10 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="bCB-rZ-Y0v"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Select Exercise" id="LLF-Km-RZT"/>
+                    <navigationItem key="navigationItem" title="Select Exercise(s)" id="LLF-Km-RZT"/>
+                    <connections>
+                        <outlet property="tableView" destination="oz4-73-rgi" id="EOj-SV-buJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WbA-4n-yJA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
