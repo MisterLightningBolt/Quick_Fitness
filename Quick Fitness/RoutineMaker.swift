@@ -24,7 +24,6 @@ class RoutineMaker: UIViewController, UITableViewDataSource, UITableViewDelegate
     }
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		print("exercises.count + 1: \(exercises.count + 1)")
 		return exercises.count + 1
     }
     
