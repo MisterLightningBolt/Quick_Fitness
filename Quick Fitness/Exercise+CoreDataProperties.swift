@@ -18,5 +18,5 @@ extension Exercise {
         return NSFetchRequest<Exercise>(entityName: "Exercise")
     }
 
-    @NSManaged public var name: String?
+    @NSManaged public var name: String
 }
