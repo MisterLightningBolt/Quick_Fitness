@@ -11,6 +11,7 @@ import UIKit
 
 let exerciseSelectCellID: String = "ExerciseSelectCell"
 let newExerciseCellID: String = "NewExerciseCell"
+let exerciseSelectToExerciseMakerSegueID: String = "ExerciseSelectToExerciseMaker"
 
 class ExerciseSelector: UIViewController, UITableViewDataSource, UITableViewDelegate {
 	@IBOutlet weak var tableView: UITableView!
@@ -22,18 +23,28 @@ class ExerciseSelector: UIViewController, UITableViewDataSource, UITableViewDele
 		super.viewDidLoad()
 		tableView.delegate = self
 		tableView.dataSource = self
+		self.fetchAndReload()
+	}
+	
+	private func fetchAndReload() {
 		exercises = CoreDataManager.fetchAllExercises()
 		tableView.reloadData()
 	}
 	
 	// Load new exercises while retaining selected data
-	override func viewDidAppear(_ animated: Bool) {
-		let selectedIndexPaths = self.tableView.indexPathsForSelectedRows ?? []
-		tableView.reloadData()
+	override func viewWillAppear(_ animated: Bool) {
+		guard let selectedPaths = self.tableView.indexPathsForSelectedRows else {
+			self.fetchAndReload()
+			return
+		}
 		
-		for selectedPath in selectedIndexPaths {
+		let oldCount: Int = exercises.count
+		self.fetchAndReload()
+		
+		for selectedPath in selectedPaths {
+			
 			// Don't reselect "New Exercise"
-			if selectedPath.row != exercises.count {
+			if selectedPath.row != oldCount {
 				tableView.selectRow(at: selectedPath, animated: false, scrollPosition: .none)
 			}
 		}
@@ -102,14 +113,14 @@ class ExerciseSelector: UIViewController, UITableViewDataSource, UITableViewDele
 		return indexPath.row != exercises.count
 	}
 	
-	/*
 	// MARK: - Navigation
 
 	// In a storyboard-based application, you will often want to do a little preparation before navigation
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-		// Get the new view controller using segue.destination.
-		// Pass the selected object to the new view controller.
+		if segue.identifier == exerciseSelectToExerciseMakerSegueID {
+			let dest = segue.destination as! ExerciseMaker
+			
+		}
 	}
-	*/
 
 }
