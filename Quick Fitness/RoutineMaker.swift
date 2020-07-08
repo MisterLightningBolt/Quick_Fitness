@@ -67,7 +67,32 @@ class RoutineMaker: UIViewController, UITableViewDataSource, UITableViewDelegate
 		exercises.append(exercise)
 	}
 	
-	// TODO: Add option to delete cell
+	// Cannot delete add exercise cell
+	func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+		return indexPath.row != exercises.count
+	}
+	
+	// Code to delete cell on swipe
+	func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+		if editingStyle == .delete {
+			
+			// Delete exercise from list
+			_ = exercises.remove(at: indexPath.row)
+			
+			// Delete exercise from table
+			tableView.deleteRows(at: [indexPath], with: .fade)
+		} else if editingStyle == .insert {
+			// Insertion is already handled elsewhere.
+			return
+		}
+	}
+	
+	// Support conditional rearranging of the table view
+	// Cannot reorder add exercise cell
+    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        // Return false if you do not want the item to be re-orderable.
+        return indexPath.row != exercises.count
+	}
 	
 	// code to enable tapping on the background to remove software keyboard
 	
