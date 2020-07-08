@@ -72,11 +72,6 @@ class ExerciseSelector: UIViewController, UITableViewDataSource, UITableViewDele
 	func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
 		if editingStyle == .delete {
 			
-			// Do not delete new exercise cell
-			if indexPath.row == exercises.count + 1 {
-				return
-			}
-			
 			// Delete exercise from list
 			let removedExercise = exercises.remove(at: indexPath.row)
 			
