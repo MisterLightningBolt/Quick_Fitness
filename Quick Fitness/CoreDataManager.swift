@@ -15,6 +15,8 @@ let entityTypes: [String] = ["Settings", "Routine", "Exercise"]
 
 class CoreDataManager {
 	
+	// MARK: - Fetching
+	
 	private static func searchEntities(entityName: String, name: String?) -> [NSManagedObject] {
 		let appDelegate = UIApplication.shared.delegate as! AppDelegate
 		let context = appDelegate.persistentContainer.viewContext
@@ -80,6 +82,28 @@ class CoreDataManager {
 		}
 	}
 	
+	// MARK: - Storage
+	
+	static func storeRoutine(name: String, exercises: [Exercise]) {
+		let appDelegate = UIApplication.shared.delegate as! AppDelegate
+		let context = appDelegate.persistentContainer.viewContext
+		
+		let routine = NSEntityDescription.insertNewObject(
+			forEntityName: "Routine", into:context)
+		
+		// Set the attribute values
+		routine.setValue(name, forKey: "name")
+		
+		routine.setValue(NSOrderedSet(array: exercises), forKey: "exercises")
+		
+		// Commit the changes
+		do {
+			try context.save()
+		} catch {
+			self.logErrorAndAbort(error: error)
+		}
+	}
+
 	static func storeExercise(name: String) {
 		let appDelegate = UIApplication.shared.delegate as! AppDelegate
 		let context = appDelegate.persistentContainer.viewContext
@@ -97,6 +121,8 @@ class CoreDataManager {
 			self.logErrorAndAbort(error: error)
 		}
 	}
+	
+	// MARK: - Deletion
 	
 	static func clearCoreData() {
 		for entityType in entityTypes {
@@ -144,6 +170,8 @@ class CoreDataManager {
 		
 		self.deleteRequestResults(request: request)
 	}
+	
+	// MARK: - Error Handling
 	
 	static func logErrorAndAbort(error: Error) -> Never {
 		let nserror = error as NSError

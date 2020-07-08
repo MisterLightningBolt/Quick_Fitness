@@ -105,7 +105,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="mKF-fu-VXL" kind="show" id="zQr-KS-yOe"/>
+                                    <segue destination="mKF-fu-VXL" kind="show" identifier="RoutineSelectedSegue" id="zQr-KS-yOe"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" shouldIndentWhileEditing="NO" reuseIdentifier="NewRoutineCell" textLabel="fie-wA-ILb" style="IBUITableViewCellStyleDefault" id="Txt-XO-Pve">
@@ -293,7 +293,11 @@
                         <viewLayoutGuide key="safeArea" id="2Zc-a4-rbS"/>
                     </view>
                     <navigationItem key="navigationItem" title="Routine Maker" id="zRL-0W-A8I">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="KZI-n9-Ysv"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="KZI-n9-Ysv">
+                            <connections>
+                                <action selector="savePressed:" destination="mKF-fu-VXL" id="JXx-MH-Vug"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="routineNameField" destination="R5k-qo-sPR" id="DNu-sT-EcL"/>

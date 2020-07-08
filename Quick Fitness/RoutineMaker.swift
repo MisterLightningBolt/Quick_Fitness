@@ -23,14 +23,18 @@ class RoutineMaker: UIViewController, UITableViewDataSource, UITableViewDelegate
         super.viewDidLoad()
 		tableView.delegate = self
         tableView.dataSource = self
+		routineNameField.text = routine?.name ?? "Routine Name"
+		exercises = routine?.exercisesArray ?? []
+		tableView.reloadData()
     }
 	
 	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
 		// If we're loading an existing routine, load its exercises.
-		if routine != nil && exercises.isEmpty {
-			routineNameField.text = routine!.name
-			exercises = routine!.exercisesArray
-		}
+//		if routine != nil && exercises.isEmpty {
+//			routineNameField.text = routine!.name
+//			exercises = routine!.exercisesArray
+//		}
 		tableView.reloadData()
 	}
 	
@@ -61,6 +65,38 @@ class RoutineMaker: UIViewController, UITableViewDataSource, UITableViewDelegate
 		let exercise = exercises[indexPath.row]
 		cell.textLabel?.text = exercise.name
 		return cell
+	}
+	
+	func routineCreationFailed(message: String) {
+		let controller = UIAlertController(
+			title: "Failed to create routine.",
+			message: message,
+			preferredStyle: .alert)
+		controller.addAction(UIAlertAction(
+		title: "OK",
+		style: .default,
+		handler: nil))
+		present(controller, animated: true, completion: nil)
+	}
+	
+	private func createNewRoutine() {
+		guard let routineName: String = routineNameField.text, !routineName.isEmpty, routineName != "Routine Name" else {
+			self.routineCreationFailed(message: "Please enter a name for the routine.")
+			return
+		}
+		CoreDataManager.storeRoutine(name: routineName, exercises: self.exercises)
+	}
+	
+	private func editRoutine() {
+		// TODO: Edit existing routine
+	}
+	
+	@IBAction func savePressed(_ sender: Any) {
+		if routine == nil {
+			self.createNewRoutine()
+		} else {
+			self.editRoutine()
+		}
 	}
 	
 	func addExercise(exercise: Exercise) {

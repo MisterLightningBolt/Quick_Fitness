@@ -12,6 +12,7 @@ import CoreData
 
 let routineCellID: String = "RoutineCell"
 let newRoutineCellID: String = "NewRoutineCell"
+let routineSelectedSegueID: String = "RoutineSelectedSegue"
 
 class MyRoutines: UITableViewController {
 	var routines: [Routine] = CoreDataManager.fetchAllRoutines()
@@ -100,14 +101,17 @@ class MyRoutines: UITableViewController {
         return indexPath.row != routines.count
 	}
 
-    /*
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    // Pass the routine to the routine maker
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+		if segue.identifier == routineSelectedSegueID {
+			let dest = segue.destination as! RoutineMaker
+			guard let row: Int = tableView.indexPathForSelectedRow?.row else {
+				dest.routine = nil
+				return
+			}
+			dest.routine = routines[row]
+		}
     }
-    */
-
 }
