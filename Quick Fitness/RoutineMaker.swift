@@ -23,6 +23,8 @@ class RoutineMaker: UIViewController, UITableViewDataSource, UITableViewDelegate
         super.viewDidLoad()
 		tableView.delegate = self
         tableView.dataSource = self
+		
+		// If we're loading an existing routine, load its properties.
 		routineNameField.text = routine?.name ?? "Routine Name"
 		exercises = routine?.exercisesArray ?? []
 		tableView.reloadData()
@@ -30,11 +32,6 @@ class RoutineMaker: UIViewController, UITableViewDataSource, UITableViewDelegate
 	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
-		// If we're loading an existing routine, load its exercises.
-//		if routine != nil && exercises.isEmpty {
-//			routineNameField.text = routine!.name
-//			exercises = routine!.exercisesArray
-//		}
 		tableView.reloadData()
 	}
 	
@@ -150,7 +147,6 @@ class RoutineMaker: UIViewController, UITableViewDataSource, UITableViewDelegate
 		if segue.identifier == routineMakerToExerciseSelectorID {
 			let dest = segue.destination as! ExerciseSelector
 			dest.delegate = self
-			dest.checkedExercises = self.exercises
 		}
     }
 
