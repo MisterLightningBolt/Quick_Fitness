@@ -18,6 +18,7 @@ class ExerciseSelector: UIViewController, UITableViewDataSource, UITableViewDele
 	
 	var delegate: AddsExercises?
 	var exercises: [Exercise] = CoreDataManager.fetchAllExercises()
+	var checkedExercises: [Exercise] = []
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -31,23 +32,10 @@ class ExerciseSelector: UIViewController, UITableViewDataSource, UITableViewDele
 		tableView.reloadData()
 	}
 	
-	// Load new exercises while retaining selected data
+	// Load new exercises while retaining selections
 	override func viewWillAppear(_ animated: Bool) {
-		guard let selectedPaths = self.tableView.indexPathsForSelectedRows else {
-			self.fetchAndReload()
-			return
-		}
-		
-		let oldCount: Int = exercises.count
+		super.viewWillAppear(animated)
 		self.fetchAndReload()
-		
-		for selectedPath in selectedPaths {
-			
-			// Don't reselect "New Exercise"
-			if selectedPath.row != oldCount {
-				tableView.selectRow(at: selectedPath, animated: false, scrollPosition: .none)
-			}
-		}
 	}
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -56,13 +44,33 @@ class ExerciseSelector: UIViewController, UITableViewDataSource, UITableViewDele
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-		// Configure the cell...
 		let row = indexPath.row
 		
+		// Determine which type of cell to load
 		if row == exercises.count {
 			return loadNewExerciseCell(tableView, cellForRowAt: indexPath)
 		} else {
 			return loadExerciseCell(tableView, cellForRowAt: indexPath)
+		}
+	}
+
+	func toggleCheckCell(at: IndexPath) {
+		guard let cell = (tableView.cellForRow(at: at) as? ExerciseTableViewCell) else {return}
+		
+		if cell.accessoryType == .none {
+			checkedExercises.append(cell.exercise)
+			cell.accessoryType = .checkmark
+		} else {
+			checkedExercises.removeAll(where: {$0.name == cell.exercise.name})
+			cell.accessoryType = .none
+		}
+	}
+	
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		tableView.deselectRow(at: indexPath, animated: false)
+		
+		if indexPath.row != exercises.count {
+			self.toggleCheckCell(at: indexPath)
 		}
 	}
 	
@@ -74,8 +82,14 @@ class ExerciseSelector: UIViewController, UITableViewDataSource, UITableViewDele
 	
 	func loadExerciseCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: exerciseSelectCellID, for: indexPath)
-		let exercise = exercises[indexPath.row]
+		let row = indexPath.row
+		let exercise = exercises[row]
+		
 		cell.textLabel?.text = exercise.name
+		(cell as! ExerciseTableViewCell).exercise = exercise
+		
+		cell.accessoryType = checkedExercises.contains(exercise) ? .checkmark : .none
+		
 		return cell
 	}
 
@@ -97,12 +111,24 @@ class ExerciseSelector: UIViewController, UITableViewDataSource, UITableViewDele
 		}
 	}
 	
+	func getCheckedExercises() -> [Exercise] {
+		return self.checkedExercises
+//		var checkedExercises: [Exercise] = []
+//
+//		for cell in tableView.visibleCells {
+//			guard let exercise: Exercise = (cell as? ExerciseTableViewCell)?.exercise, cell.accessoryType == .checkmark else {
+//				continue
+//			}
+//			checkedExercises.append(exercise)
+//		}
+//		return checkedExercises
+	}
+	
 	// Add all selected exercises to delegate and pop view
 	@IBAction func donePressed(_ sender: Any) {
-		// Add selected exercises to delegate
-		let selectedIndexPaths = self.tableView.indexPathsForSelectedRows ?? []
-		for selectedPath in selectedIndexPaths {
-			delegate?.addExercise(exercise: exercises[selectedPath.row])
+		// Add checked exercises to delegate
+		for exercise in self.getCheckedExercises() {
+			delegate?.addExercise(exercise: exercise)
 		}
 		// Pop view
 		self.navigationController?.popViewController(animated: true)

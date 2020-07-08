@@ -150,6 +150,7 @@ class RoutineMaker: UIViewController, UITableViewDataSource, UITableViewDelegate
 		if segue.identifier == routineMakerToExerciseSelectorID {
 			let dest = segue.destination as! ExerciseSelector
 			dest.delegate = self
+			dest.checkedExercises = self.exercises
 		}
     }
 
