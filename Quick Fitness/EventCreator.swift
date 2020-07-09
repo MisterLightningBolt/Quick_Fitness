@@ -131,9 +131,26 @@ class EventCreator: UIViewController, UITableViewDataSource, UITableViewDelegate
         return indexPath.row != routines.count
 	}
 	
+	func eventCreationFailed(message: String) {
+		let controller = UIAlertController(
+			title: "Failed to create event",
+			message: message,
+			preferredStyle: .alert)
+		controller.addAction(UIAlertAction(
+		title: "OK",
+		style: .default,
+		handler: nil))
+		present(controller, animated: true, completion: nil)
+	}
+	
 	// Save event to calendar and exit screen
 	@IBAction func donePressed(_ sender: Any) {
-		// TODO: Assure routine selected
+		// Assure routine selected
+		if checkedRoutine == nil {
+			self.eventCreationFailed(message: "Please select a routine.")
+			return
+		}
+		
 		// TODO: Save event to calendar
 		// TODO: Pop view
 	}
