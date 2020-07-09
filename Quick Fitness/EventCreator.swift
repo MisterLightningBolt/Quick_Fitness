@@ -19,6 +19,7 @@ class EventCreator: UIViewController, UITableViewDataSource, UITableViewDelegate
 	@IBOutlet weak var tableView: UITableView!
 	
 	var routines: [Routine] = CoreDataManager.fetchAllRoutines()
+	var checkedRoutine: Routine?
 	
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,11 +36,22 @@ class EventCreator: UIViewController, UITableViewDataSource, UITableViewDelegate
 		routines = CoreDataManager.fetchAllRoutines()
 		tableView.reloadData()
 	}
-
+	
+	func toggleCheckCell(at: IndexPath) {
+		guard let cell = tableView.cellForRow(at: at) else {return}
+		
+		if cell.accessoryType == .none {
+			checkedRoutine = routines[at.row]
+			cell.accessoryType = .checkmark
+		} else {
+			checkedRoutine = nil
+			cell.accessoryType = .none
+		}
+	}
+	
     // MARK: - Table view data source
 
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		print("routines.count + 1: \(routines.count + 1)")
 		return routines.count + 1
     }
     
@@ -64,9 +76,10 @@ class EventCreator: UIViewController, UITableViewDataSource, UITableViewDelegate
 	
 	func loadRoutineEventCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: routineEventCellID, for: indexPath)
-		let routine = routines[indexPath.row]
+		let routine: Routine = routines[indexPath.row]
 		cell.textLabel?.text = routine.name
 		cell.detailTextLabel?.text = "Number of exercises: \(routine.exercisesArray.count)"
+		cell.accessoryType = routine == checkedRoutine ? .checkmark : .none
 		return cell
 	}
 	
@@ -100,14 +113,32 @@ class EventCreator: UIViewController, UITableViewDataSource, UITableViewDelegate
     }
     */
 
+	// Make checkmark indicate selected routine.
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		tableView.deselectRow(at: indexPath, animated: false)
+		
+		// Don't check "New Routine" cell
+		if indexPath.row != routines.count {
+			// Toggle check selected routine
+			self.toggleCheckCell(at: indexPath)
+		}
+	}
+	
     // Support conditional rearranging of the table view
 	// Cannot reorder new routine cell
 	func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the item to be re-orderable.
         return indexPath.row != routines.count
 	}
+	
+	// Save event to calendar and exit screen
 	@IBAction func donePressed(_ sender: Any) {
+		// TODO: Assure routine selected
+		// TODO: Save event to calendar
+		// TODO: Pop view
 	}
+	
+	
 	
     /*
     // MARK: - Navigation
