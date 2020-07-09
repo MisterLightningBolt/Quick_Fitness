@@ -61,6 +61,7 @@ class MyRoutines: UITableViewController {
 		let cell = tableView.dequeueReusableCell(withIdentifier: routineCellID, for: indexPath)
 		let routine = routines[indexPath.row]
 		cell.textLabel?.text = routine.name
+		cell.detailTextLabel?.text = "Number of exercises: \(routine.exercisesArray.count)"
 		return cell
 	}
 	

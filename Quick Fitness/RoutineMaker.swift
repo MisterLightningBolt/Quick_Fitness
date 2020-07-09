@@ -90,7 +90,6 @@ class RoutineMaker: UIViewController, UITableViewDataSource, UITableViewDelegate
 	}
 	
 	private func editRoutine() {
-		// TODO: Edit existing routine
 		CoreDataManager.editRoutine(routine: routine!, newName: routineNameField.text!, newExercises: CoreDataManager.getNames(ofExercises: self.exercises))
 	}
 	
