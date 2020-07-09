@@ -91,7 +91,27 @@ class CoreDataManager {
 		return result
 	}
 	
+	static var darkModeEnabled: Bool {
+		return self.fetchSettings().darkModeEnabled
+	}
+	
+	static var calendarNotificationsEnabled: Bool {
+		return self.fetchSettings().calendarNotificationsEnabled
+	}
+	
 	// MARK: - Storage
+	
+	static func saveContext() {
+		let appDelegate = UIApplication.shared.delegate as! AppDelegate
+		let context = appDelegate.persistentContainer.viewContext
+		
+		// Commit the changes
+		do {
+			try context.save()
+		} catch {
+			self.logErrorAndAbort(error: error)
+		}
+	}
 	
 	static func storeRoutine(name: String, exercises: [String]) {
 		let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -105,12 +125,7 @@ class CoreDataManager {
 		
 		routine.setValue(exercises, forKey: "exercises")
 		
-		// Commit the changes
-		do {
-			try context.save()
-		} catch {
-			self.logErrorAndAbort(error: error)
-		}
+		self.saveContext()
 	}
 
 	static func storeExercise(name: String) {
@@ -123,30 +138,18 @@ class CoreDataManager {
 		// Set the attribute values
 		exercise.setValue(name, forKey: "name")
 		
-		// Commit the changes
-		do {
-			try context.save()
-		} catch {
-			self.logErrorAndAbort(error: error)
-		}
+		self.saveContext()
 	}
 	
 	static func editRoutine(routine: Routine, newName: String, newExercises: [String]) {
-		let appDelegate = UIApplication.shared.delegate as! AppDelegate
-		let context = appDelegate.persistentContainer.viewContext
-		
 		routine.setValue(newName, forKey: "name")
 		routine.setValue(newExercises, forKey: "exercises")
 		
-		// Commit the changes
-		do {
-			try context.save()
-		} catch {
-			// if an error occurs
-			let nserror = error as NSError
-			NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
-			abort()
-		}
+		self.saveContext()
+	}
+	
+	static func storeSetting(forKey: String, value: Any) {
+		self.fetchSettings().setValue(value, forKey: forKey)
 	}
 	
 	// MARK: - Deletion

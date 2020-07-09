@@ -26,7 +26,8 @@ class MyRoutines: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 	
-	override func viewDidAppear(_ animated: Bool) {
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)		
 		// Reload any new routines
 		routines = CoreDataManager.fetchAllRoutines()
 		tableView.reloadData()
