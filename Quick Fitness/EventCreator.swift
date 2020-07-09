@@ -131,9 +131,9 @@ class EventCreator: UIViewController, UITableViewDataSource, UITableViewDelegate
         return indexPath.row != routines.count
 	}
 	
-	func eventCreationFailed(message: String) {
+	func showAlert(title: String, message: String) {
 		let controller = UIAlertController(
-			title: "Failed to create event",
+			title: title,
 			message: message,
 			preferredStyle: .alert)
 		controller.addAction(UIAlertAction(
@@ -143,7 +143,15 @@ class EventCreator: UIViewController, UITableViewDataSource, UITableViewDelegate
 		present(controller, animated: true, completion: nil)
 	}
 	
-	// Save event to calendar and exit screen
+	func eventCreationFailed(message: String) {
+		showAlert(title: "Failed to add event to calendar.", message: message)
+	}
+	
+	func eventCreationSucceeded() {
+		showAlert(title: "Event added to calendar.", message: "Title of event: \"Quick Fitness: \(checkedRoutine!.name!)\"")
+	}
+	
+	// Attempt to save event to calendar
 	@IBAction func donePressed(_ sender: Any) {
 		// Assure routine selected
 		if checkedRoutine == nil {
@@ -151,15 +159,14 @@ class EventCreator: UIViewController, UITableViewDataSource, UITableViewDelegate
 			return
 		}
 		
-		// Save event to calendar
+		// Add event to calendar
 		let startDate = datePicker.date
 		let endDate = startDate.addingTimeInterval(60*60) // 1 hour by default
 		addEvent(title: "Quick Fitness: \(checkedRoutine!.name!)", startDate: startDate, endDate: endDate)
-		
-		// TODO: Pop view
 	}
 	
 	// The following code was taken from Class Demo 23.
+	// Some modifications were made.
 	
 	var savedEventId:String = ""
     let eventStore = EKEventStore()
@@ -182,11 +189,16 @@ class EventCreator: UIViewController, UITableViewDataSource, UITableViewDelegate
             // "span" means either "just this one" or "all subsequent events"
             
             try eventStore.save(event, span: .thisEvent)
-            
-            // save an identifier so we can refer to this event later
+			// save an identifier so we can refer to this event later
             savedEventId = event.eventIdentifier
+			
+			// Notify user that event was added to calendar
+			self.eventCreationSucceeded()
         } catch {
-			CoreDataManager.logErrorAndAbort(error: error)
+			NSLog("Error creating event: \(error)")
+			
+			// Notify user that event couldn't be added to calendar.
+			self.eventCreationFailed(message: "Internal error.")
         }
     }
 
