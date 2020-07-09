@@ -83,6 +83,14 @@ class CoreDataManager {
 		}
 	}
 	
+	static func getNames(ofExercises: [Exercise]) -> [String] {
+		var result: [String] = []
+		for exercise in ofExercises {
+			result.append(exercise.name!)
+		}
+		return result
+	}
+	
 	// MARK: - Storage
 	
 	static func storeRoutine(name: String, exercises: [String]) {
@@ -120,6 +128,24 @@ class CoreDataManager {
 			try context.save()
 		} catch {
 			self.logErrorAndAbort(error: error)
+		}
+	}
+	
+	static func editRoutine(routine: Routine, newName: String, newExercises: [String]) {
+		let appDelegate = UIApplication.shared.delegate as! AppDelegate
+		let context = appDelegate.persistentContainer.viewContext
+		
+		routine.setValue(newName, forKey: "name")
+		routine.setValue(newExercises, forKey: "exercises")
+		
+		// Commit the changes
+		do {
+			try context.save()
+		} catch {
+			// if an error occurs
+			let nserror = error as NSError
+			NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
+			abort()
 		}
 	}
 	

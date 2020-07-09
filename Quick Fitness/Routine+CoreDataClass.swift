@@ -26,4 +26,16 @@ public class Routine: NSManagedObject, NSCoding {
 		name = coder.decodeObject(forKey: "name") as! String
 		exercises = coder.decodeObject(forKey: "exercises") as! NSObject
 	}
+	
+	public func getExerciseObjects() -> [Exercise] {
+		var result: [Exercise] = []
+		for exercise in (self.exercises as! [String]) {
+			do {
+				try result.append(CoreDataManager.fetchExercise(name: exercise))
+			} catch {
+				CoreDataManager.logErrorAndAbort(error: error)
+			}
+		}
+		return result
+	}
 }
