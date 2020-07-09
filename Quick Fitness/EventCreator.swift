@@ -165,8 +165,14 @@ class EventCreator: UIViewController, UITableViewDataSource, UITableViewDelegate
 		addEvent(title: "Quick Fitness: \(checkedRoutine!.name!)", startDate: startDate, endDate: endDate)
 	}
 	
-	// The following code was taken from Class Demo 23.
-	// Some modifications were made.
+	func addAlarm(toEvent: EKEvent) {
+		if CoreDataManager.fetchSettings().calendarNotificationsEnabled {
+			toEvent.addAlarm(EKAlarm(absoluteDate: toEvent.startDate))
+		}
+	}
+	
+	// MARK: - Modified Class Demo 23 Code
+	// The following code was taken from Class Demo 23. Modifications were made.
 	
 	var savedEventId:String = ""
     let eventStore = EKEventStore()
@@ -185,9 +191,11 @@ class EventCreator: UIViewController, UITableViewDataSource, UITableViewDelegate
         event.calendar = eventStore.defaultCalendarForNewEvents
         
         do {
-            // save the event to the calendar
+			// If alarms are enabled, add one to event
+			self.addAlarm(toEvent: event)
+			
+			// save the event to the calendar
             // "span" means either "just this one" or "all subsequent events"
-            
             try eventStore.save(event, span: .thisEvent)
 			// save an identifier so we can refer to this event later
             savedEventId = event.eventIdentifier
