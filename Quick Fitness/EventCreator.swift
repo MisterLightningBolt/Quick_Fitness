@@ -151,20 +151,56 @@ class EventCreator: UIViewController, UITableViewDataSource, UITableViewDelegate
 			return
 		}
 		
-		// TODO: Save event to calendar
+		// Save event to calendar
+		let startDate = datePicker.date
+		let endDate = startDate.addingTimeInterval(60*60) // 1 hour by default
+		addEvent(title: "Quick Fitness: \(checkedRoutine!.name!)", startDate: startDate, endDate: endDate)
+		
 		// TODO: Pop view
 	}
 	
+	// The following code was taken from Class Demo 23.
 	
-	
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+	var savedEventId:String = ""
+    let eventStore = EKEventStore()
+    
+    func createEvent(title:String, startDate: Date, endDate: Date) {
+        
+        // use the instance of EKEventStore, which enables me to perform
+        // read and write operations on the user's calendar and reminder lists
+        
+        let event = EKEvent(eventStore: eventStore)
+        
+        // construct the event
+        event.title = title
+        event.startDate = startDate as Date?
+        event.endDate = endDate as Date?
+        event.calendar = eventStore.defaultCalendarForNewEvents
+        
+        do {
+            // save the event to the calendar
+            // "span" means either "just this one" or "all subsequent events"
+            
+            try eventStore.save(event, span: .thisEvent)
+            
+            // save an identifier so we can refer to this event later
+            savedEventId = event.eventIdentifier
+        } catch {
+			CoreDataManager.logErrorAndAbort(error: error)
+        }
     }
-    */
 
+    func addEvent(title:String, startDate: Date, endDate: Date) {
+		if (EKEventStore.authorizationStatus(for: .event) !=
+			EKAuthorizationStatus.authorized) {
+			self.eventStore.requestAccess(
+				to: .event,
+				completion: {
+					granted, error in
+					self.createEvent(title: title,startDate: startDate, endDate: endDate)
+			})
+		} else {
+			self.createEvent(title: title, startDate: startDate, endDate: endDate)
+		}
+    }
 }
