@@ -101,7 +101,7 @@ class ExerciseSelector: UIViewController, UITableViewDataSource, UITableViewDele
 			let removedExercise = exercises.remove(at: indexPath.row)
 			
 			// Delete exercise from core data
-			CoreDataManager.deleteExercise(name: removedExercise.name)
+			CoreDataManager.deleteExercise(name: removedExercise.name!)
 			
 			// Delete exercise from table
 			tableView.deleteRows(at: [indexPath], with: .fade)
@@ -113,15 +113,6 @@ class ExerciseSelector: UIViewController, UITableViewDataSource, UITableViewDele
 	
 	func getCheckedExercises() -> [Exercise] {
 		return self.checkedExercises
-//		var checkedExercises: [Exercise] = []
-//
-//		for cell in tableView.visibleCells {
-//			guard let exercise: Exercise = (cell as? ExerciseTableViewCell)?.exercise, cell.accessoryType == .checkmark else {
-//				continue
-//			}
-//			checkedExercises.append(exercise)
-//		}
-//		return checkedExercises
 	}
 	
 	// Add all selected exercises to delegate and pop view
@@ -138,15 +129,4 @@ class ExerciseSelector: UIViewController, UITableViewDataSource, UITableViewDele
 	func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
 		return indexPath.row != exercises.count
 	}
-	
-	// MARK: - Navigation
-
-	// In a storyboard-based application, you will often want to do a little preparation before navigation
-	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-		if segue.identifier == exerciseSelectToExerciseMakerSegueID {
-			let dest = segue.destination as! ExerciseMaker
-			
-		}
-	}
-
 }

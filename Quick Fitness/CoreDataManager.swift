@@ -22,8 +22,7 @@ class CoreDataManager {
 		let context = appDelegate.persistentContainer.viewContext
 		
 		let request = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
-		
-		var fetchedResults: [NSManagedObject]? = nil
+		var fetchedResults: [NSManagedObject]?
 		
 		if name != nil && name != "*" {
 			let predicate = NSPredicate(format: "name == %@", name!)
@@ -32,7 +31,7 @@ class CoreDataManager {
 		
 		do {
 			try fetchedResults = context.fetch(request) as? [NSManagedObject]
-			return fetchedResults!
+			return fetchedResults ?? []
 		} catch {
 			self.logErrorAndAbort(error: error)
 		}
@@ -52,7 +51,7 @@ class CoreDataManager {
 	}
 	
 	static func fetchAllExercises() -> [Exercise] {
-		return (searchEntities(entityName: "Exercise", name: "*") as! [Exercise]).sorted{$0.name.lowercased() < $1.name.lowercased()}
+		return (searchEntities(entityName: "Exercise", name: "*") as! [Exercise]).sorted{$0.name!.lowercased() < $1.name!.lowercased()}
 	}
 	
 	static func fetchExercise(name: String) throws -> Exercise {
@@ -60,7 +59,9 @@ class CoreDataManager {
 	}
 	
 	static func fetchAllRoutines() -> [Routine] {
-		return (searchEntities(entityName: "Routine", name: "*") as! [Routine]).sorted{$0.name.lowercased() < $1.name.lowercased()}
+		var result = (searchEntities(entityName: "Routine", name: "*") as! [Routine])
+		result = result.sorted{$0.name!.lowercased() < $1.name!.lowercased()}
+		return result
 	}
 	
 	static func fetchRoutine(name: String) throws -> Routine {
@@ -84,7 +85,7 @@ class CoreDataManager {
 	
 	// MARK: - Storage
 	
-	static func storeRoutine(name: String, exercises: [Exercise]) {
+	static func storeRoutine(name: String, exercises: [String]) {
 		let appDelegate = UIApplication.shared.delegate as! AppDelegate
 		let context = appDelegate.persistentContainer.viewContext
 		
@@ -94,7 +95,7 @@ class CoreDataManager {
 		// Set the attribute values
 		routine.setValue(name, forKey: "name")
 		
-		routine.setValue(NSOrderedSet(array: exercises), forKey: "exercises")
+		routine.setValue(exercises, forKey: "exercises")
 		
 		// Commit the changes
 		do {

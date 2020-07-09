@@ -2,18 +2,17 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19F101" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Exercise" representedClassName="Exercise" syncable="YES">
         <attribute name="name" attributeType="String"/>
-        <relationship name="routines" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Routine" inverseName="exercises" inverseEntity="Routine"/>
     </entity>
     <entity name="Routine" representedClassName="Routine" syncable="YES">
+        <attribute name="exercises" attributeType="Transformable"/>
         <attribute name="name" attributeType="String"/>
-        <relationship name="exercises" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Exercise" inverseName="routines" inverseEntity="Exercise"/>
     </entity>
-    <entity name="Settings" representedClassName="Settings" syncable="YES">
+    <entity name="Settings" representedClassName="Settings" syncable="YES" codeGenerationType="class">
         <attribute name="calendarNotificationsEnabled" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES"/>
         <attribute name="darkModeEnabled" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
     </entity>
     <elements>
-        <element name="Exercise" positionX="-63" positionY="-18" width="128" height="73"/>
+        <element name="Exercise" positionX="-63" positionY="-18" width="128" height="58"/>
         <element name="Routine" positionX="-54" positionY="-9" width="128" height="73"/>
         <element name="Settings" positionX="160" positionY="192" width="128" height="73"/>
     </elements>

@@ -26,7 +26,15 @@ class RoutineMaker: UIViewController, UITableViewDataSource, UITableViewDelegate
 		
 		// If we're loading an existing routine, load its properties.
 		routineNameField.text = routine?.name ?? "Routine Name"
-		exercises = routine?.exercisesArray ?? []
+		if routine != nil {
+			for exercise in (routine!.exercises as! [String]) {
+				do {
+					try exercises.append(CoreDataManager.fetchExercise(name: exercise))
+				} catch {
+					CoreDataManager.logErrorAndAbort(error: error)
+				}
+			}
+		}
 		tableView.reloadData()
     }
 	
@@ -81,7 +89,11 @@ class RoutineMaker: UIViewController, UITableViewDataSource, UITableViewDelegate
 			self.routineCreationFailed(message: "Please enter a name for the routine.")
 			return
 		}
-		CoreDataManager.storeRoutine(name: routineName, exercises: self.exercises)
+		var names: [String] = []
+		for exercise in exercises {
+			names.append(exercise.name!)
+		}
+		CoreDataManager.storeRoutine(name: routineName, exercises: names)
 	}
 	
 	private func editRoutine() {
