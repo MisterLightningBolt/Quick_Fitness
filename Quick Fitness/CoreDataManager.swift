@@ -11,7 +11,7 @@ import Foundation
 import CoreData
 import UIKit
 
-let entityTypes: [String] = ["Settings", "Routine", "Exercise"]
+let entityNames: [String] = ["Settings", "Routine", "Exercise"]
 
 class CoreDataManager {
 	
@@ -125,28 +125,18 @@ class CoreDataManager {
 	// MARK: - Deletion
 	
 	static func clearCoreData() {
-		for entityType in entityTypes {
-			self.deleteEntities(ofType: entityType)
+		for entityName in entityNames {
+			let request = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
+			self.deleteRequestResults(request: request)
 		}
     }
 	
 	static func deleteRequestResults(request: NSFetchRequest<NSFetchRequestResult>) {
 		let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
-		
-		do {
-			let fetchedResults = try context.fetch(request) as! [NSManagedObject]
-            
-            if fetchedResults.count > 0 {
-                for result:AnyObject in fetchedResults {
-                    context.delete(result as! NSManagedObject)
-                }
-            }
-            try context.save()
-            
-		} catch {
-			self.logErrorAndAbort(error: error)
-        }
+		let deleteRequest = NSBatchDeleteRequest(fetchRequest: request)
+		do { try context.execute(deleteRequest) }
+		catch { self.logErrorAndAbort(error: error) }
 	}
 	
 	static func deleteEntities(ofType: String) {
