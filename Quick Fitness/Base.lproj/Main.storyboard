@@ -441,7 +441,7 @@
         <!--Navigation Controller-->
         <scene sceneID="T7B-RX-DUw">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zKE-53-vI8" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zKE-53-vI8" customClass="NavigationController" customModule="Quick_Fitness" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="nIm-hr-kRX">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>

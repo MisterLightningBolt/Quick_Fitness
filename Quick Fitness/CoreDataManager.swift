@@ -72,12 +72,11 @@ class CoreDataManager {
 		let result = searchEntities(entityName: "Settings", name: nil)
 		
 		if result.isEmpty {
+			print("Creating new settings...")
 			// No settings saved. Make new settings.
+			self.storeSettings(calendarNotifications: true, darkMode: false)
 			
-			let appDelegate = UIApplication.shared.delegate as! AppDelegate
-			let context = appDelegate.persistentContainer.viewContext
-			return NSEntityDescription.insertNewObject(
-				forEntityName: "Settings", into: context) as! Settings
+			return self.fetchSettings()
 		} else {
 			return result[0] as! Settings
 		}
@@ -148,8 +147,24 @@ class CoreDataManager {
 		self.saveContext()
 	}
 	
+	static func storeSettings(calendarNotifications: Bool, darkMode: Bool) {
+		let appDelegate = UIApplication.shared.delegate as! AppDelegate
+		let context = appDelegate.persistentContainer.viewContext
+		
+		let settings = NSEntityDescription.insertNewObject(
+			forEntityName: "Settings", into:context)
+		
+		// Set the attribute values
+		settings.setValue(calendarNotifications, forKey: "calendarNotificationsEnabled")
+		settings.setValue(darkMode, forKey: "darkModeEnabled")
+		
+		self.saveContext()
+	}
+	
 	static func storeSetting(forKey: String, value: Any) {
-		self.fetchSettings().setValue(value, forKey: forKey)
+		let settings: Settings = self.fetchSettings()
+		settings.setValue(value, forKey: forKey)
+		self.saveContext()
 	}
 	
 	// MARK: - Deletion

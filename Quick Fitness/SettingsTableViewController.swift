@@ -36,7 +36,6 @@ class SettingsTableViewController: UITableViewController {
 		CoreDataManager.storeSetting(forKey: "calendarNotificationsEnabled", value: calendarNotificationsSwitch.isOn)
 	}
 	
-	
 	@IBAction func darkModeChanged(_ sender: Any) {
 		CoreDataManager.storeSetting(forKey: "darkModeEnabled", value: darkModeSwitch.isOn)
 		overrideUserInterfaceStyle = CoreDataManager.darkModeEnabled ? .dark : .light
