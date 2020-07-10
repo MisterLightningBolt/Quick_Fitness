@@ -13,7 +13,7 @@ import EventKitUI
 
 let routineEventCellID: String = "RoutineEventCell"
 
-class EventCreator: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class Planner: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
 	@IBOutlet weak var datePicker: UIDatePicker!
 	@IBOutlet weak var tableView: UITableView!
