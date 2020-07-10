@@ -1,6 +1,0 @@
-framework module Pods_Quick_Fitness {
-  umbrella header "Pods-Quick Fitness-umbrella.h"
-
-  export *
-  module * { export * }
-}
