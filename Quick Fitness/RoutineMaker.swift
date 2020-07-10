@@ -65,6 +65,10 @@ class RoutineMaker: UIViewController, UITableViewDataSource, UITableViewDelegate
 		return cell
 	}
 	
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		tableView.deselectRow(at: indexPath, animated: true)
+	}
+	
 	func routineCreationFailed(message: String) {
 		let controller = UIAlertController(
 			title: "Failed to create routine.",
