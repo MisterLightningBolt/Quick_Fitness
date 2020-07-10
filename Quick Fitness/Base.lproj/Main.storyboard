@@ -165,8 +165,8 @@
                                                         <action selector="calendarNotificationsChanged:" destination="W1X-t2-0kH" eventType="valueChanged" id="mxJ-mh-vsW"/>
                                                     </connections>
                                                 </switch>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Calendar Notifications" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nl4-92-6zl">
-                                                    <rect key="frame" x="20" y="11" width="170" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Calendar Alerts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nl4-92-6zl">
+                                                    <rect key="frame" x="20" y="11" width="119" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -209,7 +209,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Settings" id="bHW-em-OAV"/>
                     <connections>
-                        <outlet property="calendarNotificationsSwitch" destination="7zp-Po-bYT" id="69z-zW-pcB"/>
+                        <outlet property="calendarAlertsSwitch" destination="7zp-Po-bYT" id="69z-zW-pcB"/>
                         <outlet property="darkModeSwitch" destination="H1S-jn-whm" id="rjp-JS-iIT"/>
                     </connections>
                 </tableViewController>

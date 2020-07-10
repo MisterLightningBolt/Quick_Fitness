@@ -10,7 +10,7 @@
 import UIKit
 
 class SettingsTableViewController: UITableViewController {
-	@IBOutlet weak var calendarNotificationsSwitch: UISwitch!
+	@IBOutlet weak var calendarAlertsSwitch: UISwitch!
 	@IBOutlet weak var darkModeSwitch: UISwitch!
 	
 	var mySettings: Settings = CoreDataManager.fetchSettings()
@@ -27,13 +27,13 @@ class SettingsTableViewController: UITableViewController {
 	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
-		calendarNotificationsSwitch.isOn = CoreDataManager.calendarNotificationsEnabled
+		calendarAlertsSwitch.isOn = CoreDataManager.calendarNotificationsEnabled
 		darkModeSwitch.isOn = CoreDataManager.darkModeEnabled
 		overrideUserInterfaceStyle = CoreDataManager.darkModeEnabled ? .dark : .light
 	}
 	
 	@IBAction func calendarNotificationsChanged(_ sender: Any) {
-		CoreDataManager.storeSetting(forKey: "calendarNotificationsEnabled", value: calendarNotificationsSwitch.isOn)
+		CoreDataManager.storeSetting(forKey: "calendarNotificationsEnabled", value: calendarAlertsSwitch.isOn)
 	}
 	
 	@IBAction func darkModeChanged(_ sender: Any) {
