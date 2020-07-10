@@ -17,47 +17,39 @@ let routineSelectedSegueID: String = "RoutineSelectedSegue"
 class MyRoutines: UITableViewController {
 	var routines: [Routine] = CoreDataManager.fetchAllRoutines()
 	
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
-    }
-	
 	override func viewWillAppear(_ animated: Bool) {
-		super.viewWillAppear(animated)		
+		super.viewWillAppear(animated)
 		// Reload any new routines
 		routines = CoreDataManager.fetchAllRoutines()
 		tableView.reloadData()
 	}
 
-    // MARK: - Table view data source
+    // MARK: - Table view
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return routines.count + 1
+		return routines.count + 1 // +1 for the "New Routine" cell
     }
     
+	// Load a cell on the given row
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
-        // Configure the cell...
-		let row = indexPath.row
 		
-		// New routine cell
-		if row == routines.count {
+		if indexPath.row == routines.count {
+			// "New Routine" cell
 			return loadNewRoutineCell(tableView, cellForRowAt: indexPath)
 		} else {
+			// Load cell that contains an existing routine
 			return loadRoutineCell(tableView, cellForRowAt: indexPath)
 		}
     }
     
+	// Load a cell that can be used to create a new routine
 	func loadNewRoutineCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: newRoutineCellID, for: indexPath)
 		cell.textLabel?.text = "New Routine"
 		return cell
 	}
 	
+	// Load a cell which contains info about a routine from core data
 	func loadRoutineCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: routineCellID, for: indexPath)
 		let routine = routines[indexPath.row]
@@ -66,12 +58,12 @@ class MyRoutines: UITableViewController {
 		return cell
 	}
 	
-	// Cannot delete new routine cell
+	// Cannot delete "New Routine" cell
 	override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
 		return indexPath.row != routines.count
 	}
 	
-	// Code to delete cell on swipe
+	// Delete cell (and its routine) on swipe
 	override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
 		if editingStyle == .delete {
 			
