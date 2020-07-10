@@ -101,7 +101,7 @@ class ExerciseSelector: UIViewController, UITableViewDataSource, UITableViewDele
 			let removedExercise = exercises.remove(at: indexPath.row)
 			
 			// Delete exercise from core data
-			CoreDataManager.deleteExercise(name: removedExercise.name!)
+			CoreDataManager.deleteExercise(name: removedExercise.name)
 			
 			// Delete exercise from table
 			tableView.deleteRows(at: [indexPath], with: .fade)

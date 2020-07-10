@@ -19,7 +19,7 @@ class Planner: UIViewController, UITableViewDataSource, UITableViewDelegate {
 	@IBOutlet weak var tableView: UITableView!
 	
 	var routines: [Routine] = CoreDataManager.fetchAllRoutines()
-	var checkedRoutine: Routine?
+	var checkedIndex: IndexPath?
 	
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,11 +41,19 @@ class Planner: UIViewController, UITableViewDataSource, UITableViewDelegate {
 		guard let cell = tableView.cellForRow(at: at) else {return}
 		
 		if cell.accessoryType == .none {
-			checkedRoutine = routines[at.row]
+			checkedIndex = at
 			cell.accessoryType = .checkmark
 		} else {
-			checkedRoutine = nil
+			checkedIndex = at
 			cell.accessoryType = .none
+		}
+	}
+	
+	func getCheckedRoutine() -> Routine? {
+		if checkedIndex != nil {
+			return routines[checkedIndex!.row]
+		} else {
+			return nil
 		}
 	}
 	
@@ -79,7 +87,7 @@ class Planner: UIViewController, UITableViewDataSource, UITableViewDelegate {
 		let routine: Routine = routines[indexPath.row]
 		cell.textLabel?.text = routine.name
 		cell.detailTextLabel?.text = "Number of exercises: \(routine.exercisesArray.count)"
-		cell.accessoryType = routine == checkedRoutine ? .checkmark : .none
+		cell.accessoryType = routine == getCheckedRoutine() ? .checkmark : .none
 		return cell
 	}
 	
@@ -96,7 +104,7 @@ class Planner: UIViewController, UITableViewDataSource, UITableViewDelegate {
 			let removedRoutine = routines.remove(at: indexPath.row)
 			
 			// Delete routine from core data
-			CoreDataManager.deleteRoutine(name: removedRoutine.name!)
+			CoreDataManager.deleteRoutine(name: removedRoutine.name)
 			
 			// Delete routine from table
 			tableView.deleteRows(at: [indexPath], with: .fade)
@@ -112,6 +120,12 @@ class Planner: UIViewController, UITableViewDataSource, UITableViewDelegate {
 		
 		// Don't check "New Routine" cell
 		if indexPath.row != routines.count {
+			// Uncheck old cell if applicable
+			if checkedIndex != nil {
+				self.toggleCheckCell(at: checkedIndex!)
+			}
+			
+			checkedIndex = indexPath
 			// Toggle check selected routine
 			self.toggleCheckCell(at: indexPath)
 		}
@@ -141,13 +155,13 @@ class Planner: UIViewController, UITableViewDataSource, UITableViewDelegate {
 	}
 	
 	func eventCreationSucceeded() {
-		showAlert(title: "Event added to calendar.", message: "Title of event: \"Quick Fitness: \(checkedRoutine!.name!)\"")
+		showAlert(title: "Event added to calendar.", message: "Title of event: \"Quick Fitness: \(getCheckedRoutine()!.name)\"")
 	}
 	
 	// Attempt to save event to calendar
 	@IBAction func donePressed(_ sender: Any) {
 		// Assure routine selected
-		if checkedRoutine == nil {
+		if getCheckedRoutine() == nil {
 			self.eventCreationFailed(message: "Please select a routine.")
 			return
 		}
@@ -155,7 +169,7 @@ class Planner: UIViewController, UITableViewDataSource, UITableViewDelegate {
 		// Add event to calendar
 		let startDate = datePicker.date
 		let endDate = startDate.addingTimeInterval(60*60) // 1 hour by default
-		addEvent(title: "Quick Fitness: \(checkedRoutine!.name!)", startDate: startDate, endDate: endDate)
+		addEvent(title: "Quick Fitness: \(getCheckedRoutine()!.name)", startDate: startDate, endDate: endDate)
 	}
 	
 	func addAlarm(toEvent: EKEvent) {

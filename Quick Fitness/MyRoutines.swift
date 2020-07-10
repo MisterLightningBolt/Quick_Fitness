@@ -79,7 +79,7 @@ class MyRoutines: UITableViewController {
 			let removedRoutine = routines.remove(at: indexPath.row)
 			
 			// Delete routine from core data
-			CoreDataManager.deleteRoutine(name: removedRoutine.name!)
+			CoreDataManager.deleteRoutine(name: removedRoutine.name)
 			
 			// Delete routine from table
 			tableView.deleteRows(at: [indexPath], with: .fade)

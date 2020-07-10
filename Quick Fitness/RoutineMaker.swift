@@ -117,7 +117,7 @@ class RoutineMaker: UIViewController, UITableViewDataSource, UITableViewDelegate
 		
 		var names: [String] = []
 		for exercise in exercises {
-			names.append(exercise.name!)
+			names.append(exercise.name)
 		}
 		CoreDataManager.storeRoutine(name: routineName, exercises: names)
 		unsavedChanges = false

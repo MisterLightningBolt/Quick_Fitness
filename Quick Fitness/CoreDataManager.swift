@@ -51,7 +51,7 @@ class CoreDataManager {
 	}
 	
 	static func fetchAllExercises() -> [Exercise] {
-		return (searchEntities(entityName: "Exercise", name: "*") as! [Exercise]).sorted{$0.name!.lowercased() < $1.name!.lowercased()}
+		return (searchEntities(entityName: "Exercise", name: "*") as! [Exercise]).sorted{$0.name.lowercased() < $1.name.lowercased()}
 	}
 	
 	static func fetchExercise(name: String) throws -> Exercise {
@@ -60,7 +60,7 @@ class CoreDataManager {
 	
 	static func fetchAllRoutines() -> [Routine] {
 		var result = (searchEntities(entityName: "Routine", name: "*") as! [Routine])
-		result = result.sorted{$0.name!.lowercased() < $1.name!.lowercased()}
+		result = result.sorted{$0.name.lowercased() < $1.name.lowercased()}
 		return result
 	}
 	
@@ -85,7 +85,7 @@ class CoreDataManager {
 	static func getNames(ofExercises: [Exercise]) -> [String] {
 		var result: [String] = []
 		for exercise in ofExercises {
-			result.append(exercise.name!)
+			result.append(exercise.name)
 		}
 		return result
 	}

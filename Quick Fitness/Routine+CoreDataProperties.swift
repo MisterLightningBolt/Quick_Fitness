@@ -18,8 +18,8 @@ extension Routine {
         return NSFetchRequest<Routine>(entityName: "Routine")
     }
 
-    @NSManaged public var exercises: NSObject?
-    @NSManaged public var name: String?
+    @NSManaged public var exercises: NSObject
+    @NSManaged public var name: String
 
 	public var exercisesArray: [String] {
 		return exercises as! [String]
