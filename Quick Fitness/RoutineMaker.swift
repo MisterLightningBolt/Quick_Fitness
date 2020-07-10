@@ -18,14 +18,20 @@ class RoutineMaker: UIViewController, UITableViewDataSource, UITableViewDelegate
 	
 	var routine: Routine?
 	var exercises: [Exercise] = []
+	var unsavedChanges: Bool = false
 	
     override func viewDidLoad() {
         super.viewDidLoad()
 		tableView.delegate = self
         tableView.dataSource = self
 		
+		// Customize back button for use with save warning
+		self.navigationItem.hidesBackButton = true
+		let newBackButton = UIBarButtonItem(title: "Back", style: UIBarButtonItem.Style.plain, target: self, action: #selector(self.back(sender:)))
+        self.navigationItem.leftBarButtonItem = newBackButton
+		
 		// If we're loading an existing routine, load its properties.
-		routineNameField.text = routine?.name ?? "Routine Name"
+		routineNameField.text = routine?.name ?? nil
 		exercises = routine?.getExerciseObjects() ?? []
 		
 		tableView.reloadData()
@@ -35,6 +41,31 @@ class RoutineMaker: UIViewController, UITableViewDataSource, UITableViewDelegate
 		super.viewWillAppear(animated)
 		tableView.reloadData()
 	}
+	
+	@objc func back(sender: UIBarButtonItem) {
+        // If unsaved changes are present, warn user before going back.
+		
+		if unsavedChanges {
+			let controller = UIAlertController(
+				title: "Exiting with unsaved changes",
+				message: "Are you sure you want to go back? Any changes will not be saved.",
+				preferredStyle: .alert)
+			controller.addAction(UIAlertAction(
+			title: "Cancel",
+			style: .cancel,
+			handler: nil))
+			controller.addAction(UIAlertAction(
+			title: "Continue",
+			style: .destructive,
+			handler: {
+				(action) in self.navigationController?.popViewController(animated: true)
+			}))
+			present(controller, animated: true, completion: nil)
+		} else {
+			// Go back to the previous ViewController
+			self.navigationController?.popViewController(animated: true)
+		}
+    }
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return exercises.count + 1
@@ -86,15 +117,26 @@ class RoutineMaker: UIViewController, UITableViewDataSource, UITableViewDelegate
 			self.routineCreationFailed(message: "Please enter a name for the routine.")
 			return
 		}
+		
 		var names: [String] = []
 		for exercise in exercises {
 			names.append(exercise.name!)
 		}
 		CoreDataManager.storeRoutine(name: routineName, exercises: names)
+		unsavedChanges = false
+		
+		do {
+			routine = try CoreDataManager.fetchRoutine(name: routineName)
+		} catch {
+			// Stored routine but couldn't fetch it. Should not happen.
+			NSLog("\(error)")
+		}
+		
 	}
 	
 	private func editRoutine() {
 		CoreDataManager.editRoutine(routine: routine!, newName: routineNameField.text!, newExercises: CoreDataManager.getNames(ofExercises: self.exercises))
+		unsavedChanges = false
 	}
 	
 	@IBAction func savePressed(_ sender: Any) {
@@ -107,6 +149,7 @@ class RoutineMaker: UIViewController, UITableViewDataSource, UITableViewDelegate
 	
 	func addExercise(exercise: Exercise) {
 		exercises.append(exercise)
+		unsavedChanges = true
 	}
 	
 	// Cannot delete add exercise cell
@@ -120,6 +163,7 @@ class RoutineMaker: UIViewController, UITableViewDataSource, UITableViewDelegate
 			
 			// Delete exercise from list
 			_ = exercises.remove(at: indexPath.row)
+			unsavedChanges = true
 			
 			// Delete exercise from table
 			tableView.deleteRows(at: [indexPath], with: .fade)
