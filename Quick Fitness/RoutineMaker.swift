@@ -113,10 +113,7 @@ class RoutineMaker: UIViewController, UITableViewDataSource, UITableViewDelegate
 	}
 	
 	private func createNewRoutine() {
-		guard let routineName: String = routineNameField.text, !routineName.isEmpty, routineName != "Routine Name" else {
-			self.routineCreationFailed(message: "Please enter a name for the routine.")
-			return
-		}
+		let routineName: String = routineNameField.text!
 		
 		var names: [String] = []
 		for exercise in exercises {
@@ -140,7 +137,12 @@ class RoutineMaker: UIViewController, UITableViewDataSource, UITableViewDelegate
 	}
 	
 	@IBAction func savePressed(_ sender: Any) {
-		if routine == nil {
+		guard let routineName: String = routineNameField.text, !routineName.isEmpty, routineName != "Routine Name" else {
+			self.routineCreationFailed(message: "Please enter a name for the routine.")
+			return
+		}
+		
+		if routine == nil || routine!.name != routineName {
 			self.createNewRoutine()
 		} else {
 			self.editRoutine()
