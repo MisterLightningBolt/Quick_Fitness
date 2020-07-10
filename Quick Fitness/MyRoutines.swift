@@ -89,20 +89,6 @@ class MyRoutines: UITableViewController {
 		}
 	}
 
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    // Support conditional rearranging of the table view
-	// Cannot reorder new routine cell
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return indexPath.row != routines.count
-	}
-
     // MARK: - Navigation
 
     // Pass the routine to the routine maker
