@@ -34,7 +34,6 @@
 /* Begin PBXFileReference section */
 		41F13AFE183C73E46F69A8B0 /* Pods-Quick Fitness.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Quick Fitness.release.xcconfig"; path = "Target Support Files/Pods-Quick Fitness/Pods-Quick Fitness.release.xcconfig"; sourceTree = "<group>"; };
 		5B709DB07325F9975368ADD9 /* Pods-Quick Fitness.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Quick Fitness.debug.xcconfig"; path = "Target Support Files/Pods-Quick Fitness/Pods-Quick Fitness.debug.xcconfig"; sourceTree = "<group>"; };
-		5E6D2AAB08C8570C07322A08 /* Pods-ReciPlan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReciPlan.release.xcconfig"; path = "Target Support Files/Pods-ReciPlan/Pods-ReciPlan.release.xcconfig"; sourceTree = "<group>"; };
 		A527EC62249C1BE300C360FE /* Quick Fitness.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Quick Fitness.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A527EC65249C1BE300C360FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A527EC67249C1BE300C360FE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,7 +58,6 @@
 		A5CB288B24B3D4E500AFB7FA /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		A5E4AF0124B7A5FC00D72944 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		AD5E8BA004CA3D793790DFD4 /* Pods_Quick_Fitness.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Quick_Fitness.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B47FFAA80F82B18E67604002 /* Pods-ReciPlan.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReciPlan.debug.xcconfig"; path = "Target Support Files/Pods-ReciPlan/Pods-ReciPlan.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,8 +83,6 @@
 		4F5214B51784640F063A6402 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				B47FFAA80F82B18E67604002 /* Pods-ReciPlan.debug.xcconfig */,
-				5E6D2AAB08C8570C07322A08 /* Pods-ReciPlan.release.xcconfig */,
 				5B709DB07325F9975368ADD9 /* Pods-Quick Fitness.debug.xcconfig */,
 				41F13AFE183C73E46F69A8B0 /* Pods-Quick Fitness.release.xcconfig */,
 			);
