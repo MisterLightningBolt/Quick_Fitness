@@ -106,13 +106,6 @@ class Planner: UIViewController, UITableViewDataSource, UITableViewDelegate {
 		}
 	}
 
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
 	// Make checkmark indicate selected routine.
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		tableView.deselectRow(at: indexPath, animated: false)
